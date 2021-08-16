@@ -1,0 +1,7 @@
+﻿Her finner du retningslinjer og maler for bacheloroppgaven ved dataingeniørstudiet i Trondheim.
+
+1. Generelle retningslinjer samt mal for hovedrapporten: retnLinjerMedMalHovedrapport.doc/.pdf
+2. Mal for visjonsdokuent: MalVisjonsdokument.doc/.pdf 
+3. Mal for kravdokuent: MalKravdokumentasjon.doc/.pdf 
+4. Mal for systemdokumentasjon: MalSystemdokumentasjon.doc/.pdf
+
