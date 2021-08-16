@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="64ab7b15-31a2-4f8f-9983-a8ce922b1599" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YklgwMjrOBoIKZBjcAgYYcVfs7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\trymg\OneDrive - NTNU\dataingeniør\sem 4\datakom med nettverksprog\øvinger\oving4\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.WebServer">
+    <configuration name="SocketKlient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SocketKlient" />
+      <module name="oving4" />
+      <option name="PROGRAM_PARAMETERS" value="1250" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SocketTjener" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="13" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="SocketTjener" />
+      <module name="oving4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WebServer" />
+      <module name="oving4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebServer2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WebServer2" />
+      <module name="oving4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebServer3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WebServer3" />
+      <module name="oving4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.SocketKlient" />
+      <item itemvalue="Application.SocketTjener" />
+      <item itemvalue="Application.WebServer" />
+      <item itemvalue="Application.WebServer2" />
+      <item itemvalue="Application.WebServer3" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.WebServer" />
+        <item itemvalue="Application.SocketTjener" />
+        <item itemvalue="Application.SocketKlient" />
+        <item itemvalue="Application.WebServer2" />
+        <item itemvalue="Application.WebServer3" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="64ab7b15-31a2-4f8f-9983-a8ce922b1599" name="Default Changelist" comment="" />
+      <created>1583494587861</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583494587861</updated>
+      <workItem from="1583494591019" duration="12497000" />
+      <workItem from="1583746453565" duration="40222000" />
+      <workItem from="1583925685371" duration="1230000" />
+      <workItem from="1584357457214" duration="11576000" />
+      <workItem from="1585230705676" duration="351000" />
+      <workItem from="1585231083243" duration="1944000" />
+      <workItem from="1585235355278" duration="348000" />
+      <workItem from="1585235912842" duration="2902000" />
+      <workItem from="1585306264715" duration="340000" />
+      <workItem from="1585306625969" duration="401000" />
+      <workItem from="1585307341097" duration="112000" />
+      <workItem from="1585307485369" duration="164000" />
+      <workItem from="1585308156430" duration="3663000" />
+      <workItem from="1587381413497" duration="1783000" />
+      <workItem from="1595271752597" duration="81000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1082" y="262" key="FileChooserDialogImpl" timestamp="1595271830225">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1082" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595271830225" />
+    <state x="183" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1595271752167">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="183" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595271752167" />
+    <state x="2743" y="345" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1587381419467" />
+    <state x="685" y="141" key="new project wizard" timestamp="1595271831708">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="685" y="141" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1595271831708" />
+  </component>
+</project>

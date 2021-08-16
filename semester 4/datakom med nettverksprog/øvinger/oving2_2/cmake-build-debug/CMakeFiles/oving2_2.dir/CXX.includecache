@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/trymg/OneDrive - NTNU/dataingeniør/sem 4/datakom med nettverksprog/øvinger/oving2_2/main.cpp
+functional
+-
+iostream
+-
+list
+-
+condition_variable
+-
+thread
+-
+vector
+-
+chrono
+-
+

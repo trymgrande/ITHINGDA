@@ -1,0 +1,3 @@
+/mnt/c/Users/trymg/OneDrive - NTNU/dataingeniør/sem 4/datakom med nettverksprog/øvinger/oving2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/trymg/OneDrive - NTNU/dataingeniør/sem 4/datakom med nettverksprog/øvinger/oving2/cmake-build-debug/CMakeFiles/oving2.dir
+/mnt/c/Users/trymg/OneDrive - NTNU/dataingeniør/sem 4/datakom med nettverksprog/øvinger/oving2/cmake-build-debug/CMakeFiles/edit_cache.dir
