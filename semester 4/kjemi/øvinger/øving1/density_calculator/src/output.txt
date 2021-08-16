@@ -1,0 +1,440 @@
+Element: Hydrogen
+Weight of single atom: 1.6735968116904685E-24
+Radius in meters: 2.5E-11
+Density of single atom with empirical radii: 255706.757110439 g/cm^3
+Radius in meters: 5.3E-11
+Density of single atom with calculated radii: 26837.040508947728 g/cm^3
+Distance between atoms to recreate table density = 2.6505088501701783E-7 cm.
+1 25 53 1.00784 0.00008988
+Element: 1
+Weight of single atom: 1.6735968116904685E-24
+Radius in meters: 2.5E-11
+Density of single atom with empirical radii: 255706.757110439 g/cm^3
+Radius in meters: 5.3E-11
+Density of single atom with calculated radii: 26837.040508947728 g/cm^3
+Distance between atoms to recreate table density = 2.6505088501701783E-7 cm.
+2 120 31 4.002602 0.0001785
+Element: 2
+Weight of single atom: 6.646632348057125E-24
+Radius in meters: 1.2E-10
+Density of single atom with empirical radii: 9182.677023505059 g/cm^3
+Radius in meters: 3.0999999999999996E-11
+Density of single atom with calculated radii: 532632.8722304301 g/cm^3
+Distance between atoms to recreate table density = 3.3392926288127864E-7 cm.
+3 145 167 6.938 0.534
+Element: 3
+Weight of single atom: 1.1521089339090004E-23
+Radius in meters: 1.45E-10
+Density of single atom with empirical radii: 9021.960645140902 g/cm^3
+Radius in meters: 1.67E-10
+Density of single atom with calculated radii: 5905.484331661396 g/cm^3
+Distance between atoms to recreate table density = 2.7838816120704448E-8 cm.
+4 105 112 9.0121831 1.85
+Element: 4
+Weight of single atom: 1.4965431916306874E-23
+Radius in meters: 1.05E-10
+Density of single atom with empirical radii: 30862.616974220342 g/cm^3
+Radius in meters: 1.12E-10
+Density of single atom with calculated radii: 25430.012765623454 g/cm^3
+Distance between atoms to recreate table density = 2.0074242939492648E-8 cm.
+5 85 87 10.806 2.34
+Element: 5
+Weight of single atom: 1.794420458319495E-23
+Radius in meters: 8.5E-11
+Density of single atom with empirical radii: 69755.55935520586 g/cm^3
+Radius in meters: 8.7E-11
+Density of single atom with calculated radii: 65054.575133318765 g/cm^3
+Distance between atoms to recreate table density = 1.9719812663817838E-8 cm.
+6 70 67 12.0096 3.513
+Element: 6
+Weight of single atom: 1.9942876120890074E-23
+Radius in meters: 7.0E-11
+Density of single atom with empirical radii: 138804.98458202527 g/cm^3
+Radius in meters: 6.7E-11
+Density of single atom with calculated radii: 158297.76173144527 g/cm^3
+Distance between atoms to recreate table density = 1.7838974331386963E-8 cm.
+7 65 56 14.00643 0.0012506
+Element: 7
+Weight of single atom: 2.3258767851212223E-23
+Radius in meters: 6.5E-11
+Density of single atom with empirical radii: 202189.2329766384 g/cm^3
+Radius in meters: 5.6E-11
+Density of single atom with calculated radii: 316179.7222702334 g/cm^3
+Distance between atoms to recreate table density = 2.649452228021747E-7 cm.
+8 60 48 15.99903 0.001429
+Element: 8
+Weight of single atom: 2.656763533709731E-23
+Radius in meters: 6.0E-11
+Density of single atom with empirical radii: 293636.83959457994 g/cm^3
+Radius in meters: 4.8E-11
+Density of single atom with calculated radii: 573509.4523331638 g/cm^3
+Distance between atoms to recreate table density = 2.6491520821477045E-7 cm.
+9 50 42 18.998403163 0.001696
+Element: 9
+Weight of single atom: 3.1548328068747927E-23
+Radius in meters: 5.0E-11
+Density of single atom with empirical radii: 602528.6830111224 g/cm^3
+Radius in meters: 4.2E-11
+Density of single atom with calculated radii: 1016576.0362864477 g/cm^3
+Distance between atoms to recreate table density = 2.6496194318139763E-7 cm.
+10 160 38 20.1797 0.0008999
+Element: 10
+Weight of single atom: 3.350996346728662E-23
+Radius in meters: 1.6E-10
+Density of single atom with empirical radii: 19531.041242605574 g/cm^3
+Radius in meters: 3.8E-11
+Density of single atom with calculated radii: 1457922.8919979667 g/cm^3
+Distance between atoms to recreate table density = 3.3393343191999486E-7 cm.
+11 180 190 22.98976928 0.971
+Element: 11
+Weight of single atom: 3.8176302358020594E-23
+Radius in meters: 1.8E-10
+Density of single atom with empirical radii: 15627.436289222627 g/cm^3
+Radius in meters: 1.9E-10
+Density of single atom with calculated radii: 13287.535856356084 g/cm^3
+Distance between atoms to recreate table density = 3.4003598317644934E-8 cm.
+12 150 145 24.304 1.738
+Element: 12
+Weight of single atom: 4.0358684822318165E-23
+Radius in meters: 1.5E-10
+Density of single atom with empirical radii: 28547.929716265724 g/cm^3
+Radius in meters: 1.45E-10
+Density of single atom with calculated radii: 31604.1700085766 g/cm^3
+Distance between atoms to recreate table density = 2.8529604056281012E-8 cm.
+13 125 118 26.9815385 2.698
+Element: 13
+Weight of single atom: 4.4804946031218867E-23
+Radius in meters: 1.25E-10
+Density of single atom with empirical radii: 54765.53192320573 g/cm^3
+Radius in meters: 1.18E-10
+Density of single atom with calculated radii: 65101.54977962158 g/cm^3
+Distance between atoms to recreate table density = 2.5512988761236266E-8 cm.
+14 110 111 28.084 2.3296
+Element: 14
+Weight of single atom: 4.6635669212886084E-23
+Radius in meters: 1.1E-10
+Density of single atom with empirical radii: 83647.22704315561 g/cm^3
+Radius in meters: 1.1099999999999999E-10
+Density of single atom with calculated radii: 81406.79700477696 g/cm^3
+Distance between atoms to recreate table density = 2.7152653978057725E-8 cm.
+15 100 98 30.973761998 1.82
+Element: 15
+Weight of single atom: 5.143434406841581E-23
+Radius in meters: 1.0E-10
+Density of single atom with empirical radii: 122790.45154766523 g/cm^3
+Radius in meters: 9.8E-11
+Density of single atom with calculated radii: 130462.70213480911 g/cm^3
+Distance between atoms to recreate table density = 3.045981579231492E-8 cm.
+16 100 00 32.059 2.067
+Element: 16
+Weight of single atom: 5.323646629026901E-23
+Radius in meters: 1.0E-10
+Density of single atom with empirical radii: 127092.70144262053 g/cm^3
+Radius in meters: 0.0
+Density of single atom with calculated radii: Infinity g/cm^3
+Distance between atoms to recreate table density = 2.953177706185672E-8 cm.
+17 100 79 35.446 0.003214
+Element: 17
+Weight of single atom: 5.88608435735636E-23
+Radius in meters: 1.0E-10
+Density of single atom with empirical radii: 140519.91313937202 g/cm^3
+Radius in meters: 7.9E-11
+Density of single atom with calculated radii: 285007.70352725044 g/cm^3
+Distance between atoms to recreate table density = 2.635887495576056E-7 cm.
+18 71 71 39.948 0.0017837
+Element: 18
+Weight of single atom: 6.633676519428762E-23
+Radius in meters: 7.1E-11
+Density of single atom with empirical radii: 442476.93236854713 g/cm^3
+Radius in meters: 7.1E-11
+Density of single atom with calculated radii: 442476.93236854713 g/cm^3
+Distance between atoms to recreate table density = 3.3379320579427503E-7 cm.
+19 220 243 39.0983 0.862
+Element: 19
+Weight of single atom: 6.492577216871472E-23
+Radius in meters: 2.2E-10
+Density of single atom with empirical radii: 14556.617545138743 g/cm^3
+Radius in meters: 2.43E-10
+Density of single atom with calculated radii: 10802.137307088082 g/cm^3
+Distance between atoms to recreate table density = 4.223151089231029E-8 cm.
+20 180 194 40.078 1.54
+Element: 20
+Weight of single atom: 6.655264031883096E-23
+Radius in meters: 1.8E-10
+Density of single atom with empirical radii: 27243.26564444167 g/cm^3
+Radius in meters: 1.94E-10
+Density of single atom with calculated radii: 21760.63130474768 g/cm^3
+Distance between atoms to recreate table density = 3.509254425803412E-8 cm.
+21 160 184 44.955908 2.989
+Element: 21
+Weight of single atom: 7.46527864496845E-23
+Radius in meters: 1.6E-10
+Density of single atom with empirical radii: 43510.83976703231 g/cm^3
+Radius in meters: 1.8399999999999998E-10
+Density of single atom with calculated radii: 28609.083433571006 g/cm^3
+Distance between atoms to recreate table density = 2.9230755200458096E-8 cm.
+22 140 176 47.867 4.540
+Element: 22
+Weight of single atom: 7.948688143473929E-23
+Radius in meters: 1.4E-10
+Density of single atom with empirical radii: 69154.86565942875 g/cm^3
+Radius in meters: 1.7599999999999999E-10
+Density of single atom with calculated radii: 34807.18051685772 g/cm^3
+Distance between atoms to recreate table density = 2.5966487228511518E-8 cm.
+23 135 171 50.9415 6.11
+Element: 23
+Weight of single atom: 8.459232813018931E-23
+Radius in meters: 1.35E-10
+Density of single atom with empirical radii: 82080.70214644852 g/cm^3
+Radius in meters: 1.71E-10
+Density of single atom with calculated radii: 40388.15712848283 g/cm^3
+Distance between atoms to recreate table density = 2.401208778875011E-8 cm.
+24 140 166 51.9961 7.15
+Element: 24
+Weight of single atom: 8.634357356360014E-23
+Radius in meters: 1.4E-10
+Density of single atom with empirical radii: 75120.29812426562 g/cm^3
+Radius in meters: 1.66E-10
+Density of single atom with calculated radii: 45062.69337467119 g/cm^3
+Distance between atoms to recreate table density = 2.294253092533632E-8 cm.
+25 140 161 54.938044 7.44
+Element: 25
+Weight of single atom: 9.122890069744271E-23
+Radius in meters: 1.4E-10
+Density of single atom with empirical radii: 79370.61132746538 g/cm^3
+Radius in meters: 1.6099999999999999E-10
+Density of single atom with calculated radii: 52187.46532585873 g/cm^3
+Distance between atoms to recreate table density = 2.3059674288308027E-8 cm.
+26 140 156 55.845 7.874
+Element: 26
+Weight of single atom: 9.273497177017602E-23
+Radius in meters: 1.4E-10
+Density of single atom with empirical radii: 80680.91739091228 g/cm^3
+Radius in meters: 1.56E-10
+Density of single atom with calculated radii: 58315.11544590037 g/cm^3
+Distance between atoms to recreate table density = 2.2751814833794075E-8 cm.
+27 135 152 58.933194 8.86
+Element: 27
+Weight of single atom: 9.786315841912986E-23
+Radius in meters: 1.35E-10
+Density of single atom with empirical radii: 94957.50897113094 g/cm^3
+Radius in meters: 1.52E-10
+Density of single atom with calculated radii: 66527.2933870093 g/cm^3
+Distance between atoms to recreate table density = 2.2270424847142932E-8 cm.
+28 135 149 58.6934 8.912
+Element: 28
+Weight of single atom: 9.746496180670874E-23
+Radius in meters: 1.35E-10
+Density of single atom with empirical radii: 94571.1351915896 g/cm^3
+Radius in meters: 1.49E-10
+Density of single atom with calculated radii: 70339.79567006844 g/cm^3
+Distance between atoms to recreate table density = 2.219683803125676E-8 cm.
+29 135 145 63.546 8.96
+Element: 29
+Weight of single atom: 1.0552308203254733E-22
+Radius in meters: 1.35E-10
+Density of single atom with empirical radii: 102390.00222997394 g/cm^3
+Radius in meters: 1.45E-10
+Density of single atom with calculated radii: 82633.25326551222 g/cm^3
+Distance between atoms to recreate table density = 2.2751663327168894E-8 cm.
+30 135 142 65.38 7.134
+Element: 30
+Weight of single atom: 1.0856858186648953E-22
+Radius in meters: 1.35E-10
+Density of single atom with empirical radii: 105345.07830226442 g/cm^3
+Radius in meters: 1.42E-10
+Density of single atom with calculated radii: 90521.24586417219 g/cm^3
+Distance between atoms to recreate table density = 2.478127725749539E-8 cm.
+31 130 136 69.723 5.907
+Element: 31
+Weight of single atom: 1.1578047160411823E-22
+Radius in meters: 1.3E-10
+Density of single atom with empirical radii: 125810.43037760298 g/cm^3
+Radius in meters: 1.36E-10
+Density of single atom with calculated radii: 109882.866382713 g/cm^3
+Distance between atoms to recreate table density = 2.696224895721114E-8 cm.
+32 125 125 72.630 5.323
+Element: 32
+Weight of single atom: 1.2060777150448357E-22
+Radius in meters: 1.25E-10
+Density of single atom with empirical radii: 147420.0807186155 g/cm^3
+Radius in meters: 1.25E-10
+Density of single atom with calculated radii: 147420.0807186155 g/cm^3
+Distance between atoms to recreate table density = 2.8296948796203895E-8 cm.
+33 115 114 74.921595 5.776
+Element: 33
+Weight of single atom: 1.2441314347392894E-22
+Radius in meters: 1.15E-10
+Density of single atom with empirical radii: 195291.85603166238 g/cm^3
+Radius in meters: 1.14E-10
+Density of single atom with calculated radii: 200476.3284398942 g/cm^3
+Distance between atoms to recreate table density = 2.7823581105552118E-8 cm.
+34 115 103 78.971 4.809
+Element: 34
+Weight of single atom: 1.3113749584855531E-22
+Radius in meters: 1.15E-10
+Density of single atom with empirical radii: 205847.10139548432 g/cm^3
+Radius in meters: 1.0299999999999999E-10
+Density of single atom with calculated radii: 286501.30392573564 g/cm^3
+Distance between atoms to recreate table density = 3.00993675135647E-8 cm.
+35 115 94 79.901 3.122
+Element: 35
+Weight of single atom: 1.3268183327798074E-22
+Radius in meters: 1.15E-10
+Density of single atom with empirical radii: 208271.25462005785 g/cm^3
+Radius in meters: 9.4E-11
+Density of single atom with calculated radii: 381363.64819245326 g/cm^3
+Distance between atoms to recreate table density = 3.489738260439718E-8 cm.
+36 1 88 83.798 0.003733
+Element: 36
+Weight of single atom: 1.3915310528063767E-22
+Radius in meters: 1.0E-12
+Density of single atom with empirical radii: 3.3220356828000616E11 g/cm^3
+Radius in meters: 8.799999999999999E-11
+Density of single atom with calculated radii: 487479.40968962223 g/cm^3
+Distance between atoms to recreate table density = 3.340501241226091E-7 cm.
+37 235 265 85.4678 1.532
+Element: 37
+Weight of single atom: 1.4192593822650282E-22
+Radius in meters: 2.35E-10
+Density of single atom with empirical radii: 26107.75795926094 g/cm^3
+Radius in meters: 2.65E-10
+Density of single atom with calculated radii: 18206.880543027793 g/cm^3
+Distance between atoms to recreate table density = 4.5248168271543936E-8 cm.
+38 200 219 87.62 2.64
+Element: 38
+Weight of single atom: 1.454998339422119E-22
+Radius in meters: 2.0E-10
+Density of single atom with empirical radii: 43419.408358036795 g/cm^3
+Radius in meters: 2.19E-10
+Density of single atom with calculated radii: 33070.55959987033 g/cm^3
+Distance between atoms to recreate table density = 3.8055683245427196E-8 cm.
+39 180 212 88.90594 4.469
+Element: 39
+Weight of single atom: 1.4763523746263701E-22
+Radius in meters: 1.8E-10
+Density of single atom with empirical radii: 60434.35652449704 g/cm^3
+Radius in meters: 2.12E-10
+Density of single atom with calculated radii: 36990.8094487046 g/cm^3
+Distance between atoms to recreate table density = 3.2086811092077515E-8 cm.
+40 155 206 91.224 6.506
+Element: 40
+Weight of single atom: 1.5148455662570576E-22
+Radius in meters: 1.55E-10
+Density of single atom with empirical radii: 97114.6292063987 g/cm^3
+Radius in meters: 2.0599999999999999E-10
+Density of single atom with calculated radii: 41369.292128315 g/cm^3
+Distance between atoms to recreate table density = 2.855517111987258E-8 cm.
+41 145 198 92.90637 8.570
+Element: 41
+Weight of single atom: 1.5427826303553638E-22
+Radius in meters: 1.45E-10
+Density of single atom with empirical radii: 120812.57045588056 g/cm^3
+Radius in meters: 1.98E-10
+Density of single atom with calculated radii: 47448.28947134579 g/cm^3
+Distance between atoms to recreate table density = 2.6208448144182765E-8 cm.
+42 145 190 95.95 10.22
+Element: 42
+Weight of single atom: 1.5933244769179677E-22
+Radius in meters: 1.45E-10
+Density of single atom with empirical radii: 124770.41278484717 g/cm^3
+Radius in meters: 1.9E-10
+Density of single atom with calculated radii: 55456.80123577849 g/cm^3
+Distance between atoms to recreate table density = 2.498145775461746E-8 cm.
+43 135 183 97 11.50
+Element: 43
+Weight of single atom: 1.610760544669545E-22
+Radius in meters: 1.35E-10
+Density of single atom with empirical radii: 156293.5545322675 g/cm^3
+Radius in meters: 1.83E-10
+Density of single atom with calculated radii: 62746.442022693 g/cm^3
+Distance between atoms to recreate table density = 2.410521711855404E-8 cm.
+44 130 178 101.07 12.37
+Element: 44
+Weight of single atom: 1.6783460644304219E-22
+Radius in meters: 1.3E-10
+Density of single atom with empirical radii: 182373.96839298846 g/cm^3
+Radius in meters: 1.78E-10
+Density of single atom with calculated radii: 71044.89852734578 g/cm^3
+Distance between atoms to recreate table density = 2.3850854239584185E-8 cm.
+45 135 173 102.90550 12.41
+Element: 45
+Weight of single atom: 1.7088259714380607E-22
+Radius in meters: 1.35E-10
+Density of single atom with empirical radii: 165808.9317105181 g/cm^3
+Radius in meters: 1.73E-10
+Density of single atom with calculated radii: 78789.96676667845 g/cm^3
+Distance between atoms to recreate table density = 2.3968564149913682E-8 cm.
+46 140 169 106.42 12.020
+Element: 46
+Weight of single atom: 1.7671869810694123E-22
+Radius in meters: 1.4E-10
+Density of single atom with empirical radii: 153748.11046182978 g/cm^3
+Radius in meters: 1.6899999999999999E-10
+Density of single atom with calculated radii: 87404.49748628153 g/cm^3
+Distance between atoms to recreate table density = 2.449773948378447E-8 cm.
+47 160 165 107.8682 10.501
+Element: 47
+Weight of single atom: 1.7912354699435406E-22
+Radius in meters: 1.6E-10
+Density of single atom with empirical radii: 104400.87131947583 g/cm^3
+Radius in meters: 1.65E-10
+Density of single atom with calculated radii: 95194.583615677 g/cm^3
+Distance between atoms to recreate table density = 2.5741904454512045E-8 cm.
+48 155 161 112.414 8.69
+Element: 48
+Weight of single atom: 1.8667220192627036E-22
+Radius in meters: 1.55E-10
+Density of single atom with empirical radii: 119672.93615285565 g/cm^3
+Radius in meters: 1.6099999999999999E-10
+Density of single atom with calculated radii: 106785.77721371157 g/cm^3
+Distance between atoms to recreate table density = 2.7798410120957572E-8 cm.
+49 155 156 114.818 7.310
+Element: 49
+Weight of single atom: 1.9066423115244106E-22
+Radius in meters: 1.55E-10
+Density of single atom with empirical radii: 122232.17022077837 g/cm^3
+Radius in meters: 1.56E-10
+Density of single atom with calculated radii: 119896.5874342804 g/cm^3
+Distance between atoms to recreate table density = 2.965632163716986E-8 cm.
+50 145 145 118.710 7.287
+Element: 50
+Weight of single atom: 1.9712720026569246E-22
+Radius in meters: 1.45E-10
+Density of single atom with empirical radii: 154366.81294100266 g/cm^3
+Radius in meters: 1.45E-10
+Density of single atom with calculated radii: 154366.81294100266 g/cm^3
+Distance between atoms to recreate table density = 3.001921017096151E-8 cm.
+51 145 133 121.760 6.685
+Element: 51
+Weight of single atom: 2.021919628030555E-22
+Radius in meters: 1.45E-10
+Density of single atom with empirical radii: 158332.93862097958 g/cm^3
+Radius in meters: 1.33E-10
+Density of single atom with calculated radii: 205173.06962501383 g/cm^3
+Distance between atoms to recreate table density = 3.115689415163593E-8 cm.
+52 140 123 127.60 6.232
+Element: 52
+Weight of single atom: 2.1188973762869477E-22
+Radius in meters: 1.4E-10
+Density of single atom with empirical radii: 184347.4806890573 g/cm^3
+Radius in meters: 1.23E-10
+Density of single atom with calculated radii: 271835.379428392 g/cm^3
+Distance between atoms to recreate table density = 3.239620656941856E-8 cm.
+53 140 115 126.90447 4.93
+Element: 53
+Weight of single atom: 2.107347558950515E-22
+Radius in meters: 1.4E-10
+Density of single atom with empirical radii: 183342.62799906 g/cm^3
+Radius in meters: 1.15E-10
+Density of single atom with calculated radii: 330791.2689927973 g/cm^3
+Distance between atoms to recreate table density = 3.496469544546323E-8 cm.
+54 1 108 131.293 0.005887
+Element: 54
+Weight of single atom: 2.180222517436068E-22
+Radius in meters: 1.0E-12
+Density of single atom with empirical radii: 5.2048978603530945E11 g/cm^3
+Radius in meters: 1.08E-10
+Density of single atom with calculated radii: 413181.57327651826 g/cm^3
+Distance between atoms to recreate table density = 3.333257986156617E-7 cm.
+55 260	298 132.90545196 1.873

@@ -1,0 +1,1 @@
+spole: spenning 0 når konstant strøm

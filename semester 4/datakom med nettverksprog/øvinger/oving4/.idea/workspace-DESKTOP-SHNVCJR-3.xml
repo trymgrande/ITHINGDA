@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="64ab7b15-31a2-4f8f-9983-a8ce922b1599" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YklgwMjrOBoIKZBjcAgYYcVfs7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\trymg\OneDrive - NTNU\dataingeniør\sem 4\datakom med nettverksprog\øvinger\oving4\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.SocketKlient">
+    <configuration name="SocketKlient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SocketKlient" />
+      <module name="oving4" />
+      <option name="PROGRAM_PARAMETERS" value="1250" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SocketTjener" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="13" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="SocketTjener" />
+      <module name="oving4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WebServer" />
+      <module name="oving4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebServer2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WebServer2" />
+      <module name="oving4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebServer3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WebServer3" />
+      <module name="oving4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.SocketKlient" />
+      <item itemvalue="Application.SocketTjener" />
+      <item itemvalue="Application.WebServer" />
+      <item itemvalue="Application.WebServer2" />
+      <item itemvalue="Application.WebServer3" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SocketKlient" />
+        <item itemvalue="Application.SocketTjener" />
+        <item itemvalue="Application.WebServer" />
+        <item itemvalue="Application.WebServer2" />
+        <item itemvalue="Application.WebServer3" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="64ab7b15-31a2-4f8f-9983-a8ce922b1599" name="Default Changelist" comment="" />
+      <created>1583494587861</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583494587861</updated>
+      <workItem from="1583494591019" duration="12497000" />
+      <workItem from="1583746453565" duration="40222000" />
+      <workItem from="1583925685371" duration="1230000" />
+      <workItem from="1584357457214" duration="11576000" />
+      <workItem from="1585230705676" duration="351000" />
+      <workItem from="1585231083243" duration="1944000" />
+      <workItem from="1585234513223" duration="694000" />
+      <workItem from="1585235227688" duration="304000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="179" key="#Java" timestamp="1583495679088">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Java/0.0.1920.1040@0.0.1920.1040" timestamp="1583495679088" />
+    <state x="552" y="179" key="#Project_Structure" timestamp="1585235234655">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1585235234655" />
+    <state x="3112" y="179" key="#Project_Structure/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1585234720853" />
+    <state x="258" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585235205079">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="258" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585235205079" />
+    <state x="2818" y="218" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1585234707937" />
+    <state x="326" y="229" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1583757420778">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="326" y="229" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583757420778" />
+    <state x="401" y="234" key="#com.intellij.ide.util.MemberChooser" timestamp="1583770126641">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="401" y="234" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583770126641" />
+    <state x="533" y="347" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1583757526572">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="533" y="347" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583757526572" />
+    <state x="1371" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585235251972">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1371" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585235251972" />
+    <state x="260" y="279" key="FileChooserDialogImpl" timestamp="1583497982770">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="260" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583497982770" />
+    <state width="748" height="381" key="GridCell.Tab.0.bottom" timestamp="1585235444273">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="748" height="381" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585235444273" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1585234393020" />
+    <state width="748" height="381" key="GridCell.Tab.0.center" timestamp="1585235444273">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="748" height="381" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585235444273" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1585234393020" />
+    <state width="748" height="381" key="GridCell.Tab.0.left" timestamp="1585235444273">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="748" height="381" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585235444273" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1585234393020" />
+    <state width="748" height="381" key="GridCell.Tab.0.right" timestamp="1585235444273">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="748" height="381" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585235444273" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1585234393020" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1583501291547">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583501291547" />
+    <state x="93" y="100" width="774" height="847" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1583760755603">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="93" y="100" width="774" height="847" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583760755603" />
+    <state x="93" y="100" width="774" height="847" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1583771772799">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="93" y="100" width="774" height="847" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583771772799" />
+    <state x="183" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1585235228909">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="183" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585235228909" />
+    <state x="953" y="0" width="974" height="1047" key="dock-window-1" timestamp="1583758548550">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="953" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1583758548550" />
+    <state x="128" y="253" width="700" height="530" key="recent.locations.popup" timestamp="1583749766892">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="128" y="253" width="700" height="530" key="recent.locations.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583749766892" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583761252433">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583761252433" />
+  </component>
+</project>

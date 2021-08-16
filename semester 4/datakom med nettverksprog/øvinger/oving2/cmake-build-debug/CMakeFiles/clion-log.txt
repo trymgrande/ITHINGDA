@@ -1,0 +1,4 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/mnt/c/Users/trymg/OneDrive - NTNU/dataingeniør/sem 4/datakom med nettverksprog/øvinger/oving2"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/c/Users/trymg/OneDrive - NTNU/dataingeniÃ¸r/sem 4/datakom med nettverksprog/Ã¸vinger/oving2/cmake-build-debug
