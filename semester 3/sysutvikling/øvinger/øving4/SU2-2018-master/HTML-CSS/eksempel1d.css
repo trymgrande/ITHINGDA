@@ -1,0 +1,23 @@
+.meny {
+    float: left;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.menyelement {
+    float: left;
+    border: 1px solid black;
+    padding: 8px;
+    background-color: blue;
+	margin: 2px;
+}
+
+.menyelement:hover {
+    background-color: darkblue;
+}
+
+a {
+    color: white;
+}

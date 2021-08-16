@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+	<head>
+		<!-- Kanseller initiell skalering på små enheter -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Responsiv Design</title>
+
+		<style type="text/css">
+			/* Først definerer vi standard CSS */
+			#pagewrap {
+				padding: 5px;
+				width: 960px;
+				margin: 20px auto;
+			}
+			header {
+				height: 180px;
+				margin-bottom: 5px;
+			}
+			article {
+				width: 600px;
+				float: left;
+				background: #f8f8f8;
+				margin-bottom: 5px;
+			}
+			aside {
+				width: 300px;
+				float: right;
+				background: #f0efef;
+				margin-bottom: 5px;
+			}
+			footer {
+				clear: both;
+			}
+			#pagewrap, header, article, aside, footer {
+				border: solid 1px #ccc;
+			}
+
+			/* Her kommer det responsive: */
+			
+			/* hvis bredde er 980px eller mindre */
+			@media (min-width: 701px) and (max-width: 980px) {
+				#pagewrap {
+					width: 94%;
+				}
+				article {
+					width: 65%;
+				}
+				aside {
+					width: 30%;
+				}
+			}
+
+			/* hvis bredde er 700px eller mindre */
+			@media (min-width: 481px) and (max-width: 700px) {
+				article {
+					width: auto;
+					float: none;
+				}
+				aside {
+					width: auto;
+					float: none;
+				}
+			}
+
+			/* hvis bredde er 480px eller mindre */
+			@media (max-width: 480px) {
+				header {
+					height: auto;
+				}
+				h1 {
+					font-size: 24px;
+				}
+				aside {
+					display: none;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="pagewrap">
+			<header id="header">
+				<h1>Responsiv Design</h1>
+			</header>
+
+			<article id="content">
+				<h2>Innhold</h2>
+				<p>text</p>
+				<p>text</p>
+				<p>text</p>
+				<p>text</p>
+				<p>text</p>
+			</article>
+
+			<aside id="sidebar">
+				<h3>Sidebar</h3>
+				<p>text</p>
+				<p>text</p>
+			</aside>
+
+			<footer id="footer">
+				<h4>Footer</h4>
+			</footer>
+		</div>
+	</body>
+</html>
