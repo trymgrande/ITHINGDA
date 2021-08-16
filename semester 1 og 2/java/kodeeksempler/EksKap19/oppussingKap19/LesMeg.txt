@@ -1,0 +1,11 @@
+Kommiplering fra kommandolinjen:
+
+Du står i katalogen OppussingKap19.
+
+Kompiler pakken oppussingsprosjekt med følgende kommando:
+
+>javac oppussingsprosjekt/*.java
+
+Og resten kompilerer du slik:
+
+>javac *.java

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="JOGL">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/OneDrive - NTNU/dataingeniør/java/JOGL/jar/gluegen-rt-natives-windows-amd64.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive - NTNU/dataingeniør/java/JOGL/jar/gluegen-rt-natives-windows-i586.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive - NTNU/dataingeniør/java/JOGL/jar/gluegen-rt.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive - NTNU/dataingeniør/java/JOGL/jar/jogl-all-natives-windows-amd64.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive - NTNU/dataingeniør/java/JOGL/jar/jogl-all-natives-windows-i586.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive - NTNU/dataingeniør/java/JOGL/jar/jogl-all.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

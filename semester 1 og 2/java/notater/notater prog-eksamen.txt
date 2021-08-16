@@ -1,0 +1,16 @@
+iterativ systemutvikling handler om å "iterere" gjennom systemutviklingsprosessen. Altså går man gjennom hver fase i flere iterasjoner 
+dette er for å bl.a. kunne tilpasse (evolusjonært) bl.a. spesifikasjoner etter hva man erfarer gjennom prosjektet som praktisk. altså endres/forbedres systemet litt etter hver iterasjon for å oppnå best mulig løsning.
+
+disse prinsippene har kommet som et forsøk på å forbedre vannfallsmodellen. i vannfallsmodellen var det veldig vanskelig å gå tilbake til en tidligere fase for å endre på noe, i motsetning til med iterative/evolusjonære metoder. grunnen til dette er at med vannfallsmetoden gjennomføres hver fase sekvensielt og nærmest uavhengig av hverandre fordi det gjerne brukes forskjellige team for hver fase, og lite casual kommunikasjon mellom dem.
+
+for å kunne planlegge og vedlikeholde et prosjekt
+
+det burde dokumenteres
+	jevnt gjennom prosjektet
+	på flere nivåer/områder
+	i flere iterasjoner
+
+dokumentasjon består vanligvis av:
+klassediagram
+er-diagram
+uc-diagram
