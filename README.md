@@ -1,2 +1,2 @@
-# dataing
-Computer science - bachelor's at NTNU Trondheim
+# Dataing (dataingeniør)
+Bachelor's degree in [computer engineering](https://www.ntnu.no/studier/ithingda) at NTNU Trondheim (2018-2020).

@@ -1,0 +1,83 @@
+---
+title: Datakom f1
+updated: 2020-04-22 10:54:50Z
+created: 2020-01-27 07:24:22Z
+---
+
+- lagmodellen
+    - applikasjonslaget
+        - kommuniserer med andre applikasjoner i...
+        - http, dns
+    - transportlaget
+        - tcp/udp
+    - nettverkslaget
+        - ip
+    - lenkelaget
+        - lan/wifi
+    - fysisk lag
+        - faktisk overføring av signaler fra enhet til enhet
+    - to strømmer -  nedover, gjennom fysisk lag til annen enhet, opp igjen
+- protokoller og tjenester
+    - opererer mellom likestilte lag
+    - tjenester tilbys fra et lag til laget over
+        - to typer tjenester:
+            - pålitelig overføring, tilbys av tcp
+            - upålitelig overføring, tilbys av udp, ip - vet ikke om dataen kommer fram til mottaker, men kan prøve igjen senere - "best effort"
+- innpakkingsprinsippet
+    - data pakkes inn med protokollens pakkehode og sendes til laget under som nyttelast
+    - vil ha minst mulig innpakking pga prosessering og båndbredde
+    - hver innpakking har vanligvis 8-20B, selve innholdet kan ha så lite som 1B (bokstav)
+    - pakker horisontalt, tjenester vertikalt
+- pakkehoder
+    - protokollens virkemåte er gitt av innholdet i pakkehodet og reglene for håndtering av disse
+- sikker (kryptert) overføring
+    - kan skje på flere lag samtidig og uavhengig av hverandre
+        - HTTPS - over tlc: ende til ende
+        - VPN - over nett: kryptering mellom IP-addresser
+        - Lenke - over WPA2 (trådløst)
+        - alle tre lagene kan være kryptert
+- internett: sammenkobling av ip-nett
+    - unik nettadresse
+    - felles default gateway (router)
+        - a.b.c.d/24 (24=nettmaske
+            - eks: 255.255.255.0
+                - nettadresse \ nodeadresse
+- pakkesvitsjing
+    - internett er pakkesvitsjet (kontra linjesvitsjet)
+    - krever spesifikk info som alle protokollene har
+        - adresser (sender og mottaker)
+            - ligger i hvert lag
+        - sjekksum (kontroll på bitfeil)
+            - ligger i hvert lag
+    - 1. alternative veier => bedre pålitelighet
+    - 2. skalerer -> deler lag med flere
+- adresser
+    - transportlaget
+        - adressen kalles port
+        - 16 bit - 2*16 - 64k
+        - ---------|-------------------|--------------- 64k
+        - velkjente    system                private
+        - 80 brukes som standard til web
+    - nettverkslaget
+        - ipv4 og ipv6
+        - nettadresse \ nodeaddresse (din unike)
+        - eks:
+            - 10.0.0.0/8 (privat adresse)
+                - første 8 bit reservert, resten ledig ?
+    - lenkelaget
+        - 48 bit reservert av produsent
+        - neste 24 bit
+- ulik "diameter" for pakkeadresser
+- standardiseringsorganisasjoner
+    - delt i 3 deler
+        - lenke-/fysisk lag
+            - IEEE (ingeniørorg)
+                - standard-eks. 802.11n
+        - mellomlaget (tcp/ip)
+            - IETF (internet engineering task force)
+                - standard-eks RFC123
+        - WEB (W3C)
+            - HTML-standard
+        - ISO bestemmer standarder overordna (sjef)
+
+-

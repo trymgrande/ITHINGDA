@@ -1,4 +1,0 @@
-value' where 1; ny setning; -- 
-Trym\'; /*
-value' where 1; drop table users; -- 
-<script>alert('hi!');</script>

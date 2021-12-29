@@ -1,0 +1,255 @@
+Øving 12 algoritmer og datastrukturer
+
+Innholdsfortegnelse
+
+~-38~38~Innledning
+Testfiler for komprimering
+Krav til løsningen
+Deloppgave Lempel-Ziv
+Tips om~157~8~ziv
+Filformat~142~12~Huffmankoding~167~9~H~205~13~Huffmanndata som trengs for å pakke ut igjen
+Adaptiv~208~8~nkoding
+Om bitstrenger
+Om koking
+Javatips for begge d~147~9~r
+Noen kodeeksempler
+
+
+  ~87~11~
+Lag et program som kan lese en fil og lage en~112~10~t utgave. ~403~8~ann~401~15~pakker~279~9~ (de~114~9~er) og 
+gjenskaper originalen. 
+
+Bruk enten~202~14~ eller~154~11~ for å~112~10~e. 
+Ressurssterke grupper med mange gode~410~8~merere må gjerne lage 
+~350~9~er for å oppnå best mulig kompresjon. I så fall 
+anbefaler jeg å lage separat~648~12~, det gjør det enklere å 
+teste og dele på arbeidet. Da går an å sjekke hvilken~-2~10~ 
+som~600~11~r best, og om det er en fordel~596~13~ output 
+fra~582~12~med~296~9~.
+
+P~654~9~ som «zip» bruk~579~13~-Welsh~588~17~, og 
+deretter~290~15~ på~930~8~f~935~13~.
+
+Det kan bli en del arbeid, da håndtering av bits & bytes er nytt 
+for mange. Det er derfor denne øvingen teller litt mer.
+
+  ~82~27~
+Oppgavetekst (pdf) http://www.iie.ntnu.no/fag/_alg/kompr/opg12.pdf~1230~16~txt~1219~46~txt
+
+Forelesningen~1215~45~diverse.pdf~1365~17~t~1289~42~diverse~1357~21~lyx~1354~48~lyx
+
+  ~117~19~
+1. Implementer enten~582~12~ell~1033~17~. (Eller 
+ ~348~10~er, om dere har tid!) Andre~-4~12~blir ikke 
+  godkjent medmindre~900~8~avtalt på forhånd.~986~18~
+  (LZW) er en ann~855~12~.
+
+2. Dere må lag~649~11~ne selv, ikke noe «cut & paste» fra 
+  nettet. Grupper som ikke kan forklare detaljer i~651~10~t 
+  sitt, får ikke~1733~10~denne oppgaven~1161~9~mye å lære av å 
+  gjøre en slik oppgave, som en ikke får med seg med~1867~14~
+  . Både når det gjelder~-2~10~ne, og generell~650~11~ing. 
+
+3. K~113~11~ og utpakking skal skje i~760~10~kjøringer. Det 
+  er ikke greit å ha ett samle~407~12~både gjør innpakking og 
+ ~2171~11~i en operasjon. U~2170~14~bare trenge den 
+ ~446~11~e fila~1861~10~n variabler/~9~14~ fra 
+ ~2270~11~a. 
+
+4. ~968~9~ne må lese og skrive filer. Altså ikke bare testdata 
+  i en tabell. 
+
+5~2312~11~s~1941~11~må produser~429~9~som er identisk med 
+ ~536~13~Men det skal ikk~2334~9~tilgang på~540~9~filen, 
+  bare d~442~13~e filen. 
+
+  Likhet kan testes med «diff» (linux) eller «fc» (windows)
+
+6~2150~15~må klare å spare minst 10% i forhold til~2566~14~, for én av mine t~102~8~. Operativsystemet kan 
+  fortelle hvor store filene er, i bytes.
+
+7~2424~11~t~989~8~ikke hasmap/hashset e.l.,~1908~10~er 
+  nødvendig her. 
+
+  ~133~22~
+~1608~14~ variant av~582~12~data~715~12~(Men ikke 
+~989~16~)
+
+Finn ut hvor my~649~11~t deres~871~13~testfilene mine. 
+Det~2222~9~sikkert alle filtyper lar seg~598~13~Men for å 
+få~1734~9~, må gruppa i det minste kunne~915~12~en fil så 
+den sparer 10%, og ~1035~9~pakke den~279~9~.
+
+Gruppa må dessuten kunne~1914~17~ne~1937~12~ne sine.
+
+  ~158~19~
+Normalt blir det veldig lite~715~11~ på små filer. Bittesmå 
+filer kan bruke~267~8~finne feil~1936~13~, m~3201~9~teste 
+~3438~11~bør ~3131~10~st være på noen kilobyte.
+
+Det blir noen avgjørelser å ta, som f.eks. hvor langt bakover 
+~3091~17~skal lete etter repeterte sekvenser. Zip leter 
+32kB bakov~780~8~fins også versjoner som går 64kB tilbake. Hvis 
+dere lar~1939~12~gå lenger tilbake, vil det bli tregere men 
+sannsynligvi~3111~12~ bedre også.
+
+Om en vil ha ~3424~10~kjap~408~9~, kan det lønne seg å la seg 
+inspirere av avanserte tekstsøk~-1~10~. 
+
+  ~186~10~
+~187~9~ bestemmer dere selv. Det kan fort bli en avveiing 
+mellom hvor kompliser~408~9~met skal være, og hvor godt det 
+skal~599~12~
+
+D~2638~18~a kan bestå av blokker. Hver blokk starter med 
+en byte-verdi, som er et tall mellom -128 og +127. Hvis tallet er 
+negativt, f.eks. -57, betyr det at~897~11~serie med tegn som 
+ikke lot~3175~17~(I dette eksempelet, 57 tegn). 
+
+~4266~15~positivt, angir det lengden på en~3687~9~ 
+sekvens. De neste 1, 2 eller 4 byte er et heltall som~2853~9~r 
+~3625~19~i fila denn~3695~10~n e~3494~9~. Med 1 byte 
+(byte) er det bare mulig å gå 127 tegn bakover~2891~14~lir 
+raskt, m~443~12~er antagelig ikke så kraftig. Med 2 byte 
+(short) går det an å gå opp til 32 ~3719~12~men vi~989~8~
+altså opp en ekstra byte. Med 4 byte (int) kan vi~4745~12~2 GB 
+~4640~9~Det gir mange flere mulighet~692~9~finne~3685~11~
+~319~8~, men~989~8~også mer plass. E~403~14~leter opptil 
+2 G~3721~11~blir ~3845~14~temmelig tregt også~4040~10~
+~3931~12~begrense litt…~2966~15~H~205~13~
+~393~19~leser inn~428~11~genererer en huffmanntre 
+ut fra~4221~11~ene i filen. Deretter~989~8~p~1942~11~h~5157~10~et til å skriv~437~16~h~297~10~et fil. Sjekk 
+~3089~10~lass dere sparer, ved~911~14~t~3119~19~re må også kunne pakk~2872~9~u~3313~10~For~273~9~, trenger~2172~10~s~1941~11~nok informasjon til å~526~11~ huffmantreet. D~794~8~ste er å legge frekvenstabellen 
+først i~2634~20~a. ~290~8~h~562~14~r en mer 
+avansert og krevende~136~8~.
+
+For å ~3204~16~ihvertfall en av file~3246~13~s med 
+~2765~9~.~3384~12~H~5086~14~ ~296~9~d~226~36~
+~3143~12~n~2958~9~å lagr~5475~9~ntreet, det holder~5796~9~
+~5508~16~.~2497~22~kan dermed bygge opp samme 
+tre ut fra~5514~9~ene. 
+
+int~5916~10~r[256];
+
+En slik~5508~15~ blir alltid 1 kB, filen som skal 
+~5669~13~å dermed være stor nok til at~109~13~e~3277~9~
+mer enn 1 kB.
+
+ ~5562~9~H~293~14~
+Med a~5559~14~nkoding slipper man~5796~9~f~5918~10~ også. 
+Man~689~8~ila opp i blokker med fast størrelse. Første blokk~6007~12~r man ikke, den bare kopieres til output. Samtidig 
+lager man e~5266~10~tre. Ne~6236~10~k~5667~16~h~5225~13~fra forrige blokk~6296~11~oppdat~6255~9~
+~5916~11~,~438~8~r nyt~6317~13~ som~3481~12~n~6335~11~
+osv. 
+~288~9~h~563~13~blir bedre, fordi den klarer å ta hensyn 
+til at bokstavfordelingen endrer seg underveis.
+
+  ~306~15~
+En~313~10~ er ikke en streng som dette: "00001101". Dette er en 
+tekststreng med 8 tegn. Skriver vi dette til en fil,~4735~9~med 
+8 byte, og vi oppnår~1862~10~d~3031~15~Tvert imot får vi 
+en veldig stor fil!
+
+Me~6627~11~en 0b00001101 er det samme som tallet 13, og kan 
+lagres som én byte.
+
+Datatypen «long» er på 64 bit. Ingen tegn vil trenge lenger ~244~8~kode enn det. (Det kan vises at nå ma~4670~14~en fil 
+på 2.7GB~5412~10~i~6962~10~kodes med mer enn 44 bit.)~6938~11~
+dermed egn~5239~9~lagre~311~12~. E~6939~9~ha~5981~9~64 
+bit, så ~6845~12~-klass~5360~10~ha et felt~4513~15~hvor 
+mange av bitene som er med i~6847~12~.
+
+Å skriv~7144~13~ til fil, blir en del ekstra arbeid. Java lar 
+oss bare skrive hele ~6763~9~for å være effektive bør vi bare 
+skrive byte-array av en viss~6219~12~Men, med 
+høyre/venstreskift samt binære & og | -~2305~9~er, kan vi få 
+vå~7142~14~ inn i et~7432~12~som så kan skrives til disk. 
+
+Tilsvarende for lesing: Vi~5120~12~t~7433~11~, og plukker~1031~11~ut én og én bit for å navigere gjennom~5799~14~.
+
+  ~326~10~
+På nettet fins mange implementasjoner a~288~16~. De har 
+sine særegenheter som vi kjenner igjen~2424~11~r~6460~10~r 
+hashset/hasmap vil bli underkjent som kok. hashopplegg~261~8~
+ikke for å løse~1973~16~
+
+  ~315~31~
+
+---------~8010~9~-~8000~19~-~7983~36~
+  Datatype    bits    byte         ~8112~9~   min~8101~21~ax  ~7939~79~ ~8046~12~8       1~8021~21~ -128~7996~20~127  
+   short       16      2~8099~20~32 76~8098~18~32 767  
+    char~8081~35~      0~7847~17~65 535  
+    int~8082~10~      4~7955~16~214748364~7950~14~2147483647  
+    long       64~7867~13~-9223372036854775808    ~8151~18~7~7657~79~
+~448~16~leser~7150~11~yte fra~6769~11~alltid trege i 
+Java. ~5043~9~noe fart i sakene, lønner det seg å lese/skrive 
+større blokker~3640~9~et array med~2209~9~Jeg god~7148~9~midlertid~887~9~r~4397~10~/skriv~7974~12~
+byte også – så lenge de~2172~9~for trege til å demonstreres. Noe 
+bitfikl~5691~9~det uansett~104~13~o~1126~13~går ikke an 
+~4362~9~«en halv byte»~6410~10~man må~2305~14~samle opp 
+bits til man har en hel byte~3064~10~være lurt å lage en egen 
+klasse for å send~6264~21~.
+
+  Noen kodeeksempler
+
+//Åpne filer:
+
+innfil = new DataInputStream(new Buffered~8152~16~
+File~8135~12~inn_navn)));
+
+ut~8091~14~Out~8082~22~O~8151~16~
+File~8132~13~ut~8092~11~//Lese data fra fil inn i~6141~11~:
+
+//   byte []data  : arrayet v~6297~12~i
+
+//   int posisjon : index~8094~13~ for d~8114~15~
+~8121~10~mengde   : antall byte vi vil lese inn
+
+innfil.readFully(data,~8059~9~, mengde~7945~11~inn én byte
+
+byte x;
+
+x = ~8105~11~Byte();
+
+//Har også:
+
+short s~8135~14~Short();
+
+char c~8105~14~Char();
+
+int i~8077~14~Int();
+
+long l~8049~14~Long();
+
+//Skriv~7761~11~b~5732~10~til fil:
+
+utfil.write~7904~29~Skrive~6952~9~t~8118~9~byte singlebyte = 17;~8091~13~Byte(~8148~10~)~7892~14~ 
+
+//~8047~11~Char(char c);~8147~16~Short(short s);~8118~15~Int(int i);  ~8088~16~Long(long l);
+
+//Hente 13 bit fra long1, 8~8162~13~2 og 4~8143~13~3, 
+
+//og få det~5500~20~:
+
+byte[] data = new byte[3]~7741~9~ong1 = 0b1101000010011; //13 bit~8141~11~2 = 0b11100111;      //8~8138~15~3 = 0b010;~5914~11~//3 bit
+
+//8 første~7934~14~ til data[0]
+
+//øvrige bits maskeres bort med &
+
+data[0] = (byte)(long1 & 0b11111111);
+
+//5 gjenværend~8050~25~1]
+
+//høyreskiftet fjerner bits vi allerede har lagt i~8003~12~treng~476~8~maskere fordi reste~8056~9~s i long1 er 0.
+
+data[1~7973~17~>> 8);
+
+//data[1] har plass til 3 av de~7620~16~
+
+/~4908~13~er 5 plasser~3933~9~ 5~7792~11~s i data[1] er i 
+bruk fra før~7947~25~vekk bits fordi bits over 256 ikke går inn 
+i en byte uansett~7936~10~|~7730~13~2 << 5~7719~32~2~7624~10~2~7736~15~ fjerner de~7732~18~la~7947~10~
+
+data[2~7599~15~2 >> 3); ~7806~9~2~7799~16~de ~7233~14~3~8106~10~|~7524~13~3~7977~9~System.out.printf("%x %x %x\n", data[0], data[1], data[2]);
+

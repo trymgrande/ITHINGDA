@@ -1,1 +1,0 @@
-/usr/bin/c++   -pthread -g   CMakeFiles/oving2.dir/main.cpp.o  -o oving2 
