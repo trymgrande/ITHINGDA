@@ -1,0 +1,72 @@
+---
+title: B presentasjonsteknikk
+updated: 2018-12-14 19:57:34Z
+created: 2018-12-14 14:40:21Z
+---
+
+- kommunikasjon
+    - sender/mottaker må forstå hverandre
+    - miljø for kommunikasjon
+- ops på rom for ulik tolkning
+- dårlig presentasjon:
+    - uforberedt
+    - mumler
+    - dårlige slides
+    - monoton, leser av manus
+    - uinteressant
+- bra presentasjon
+    - forberedt
+    - tilpasset publikum
+    - bra stemmebruk/kroppspråk
+    - kontakt, toveis kommunikasjon
+    - presentatør tror på det hen sier
+- planlegging
+    - hvem er publikum?
+        - antall, alder, kjønn, kompetanse, setting, innstilling til budskap
+- hva skal du snakke om?
+    - planlegge presentasjon
+        - tilgjengelig utstyr
+        - størrelse/utforming av lokalet
+        - tilgang til strøm
+    - form på presentasjonen
+        - digital eller analog
+        - live demo
+        - involvering av mottaker underveis
+- struktur på presentasjon
+    - innledning
+        - hils
+        - agenda
+    - hold presentasjon
+        - gjentakelser, historier, poengter viktige ting
+        - oppsummering
+    - avslutt
+        - planlegg besvarelser av spørsmål
+- bruk av lysark
+    - enkelt
+    - oversiktlig
+    - vis budskapet
+- non-verbal kommunikasjon
+- stemmebruk
+    - tonafall, volum, tempo, pauser
+- kroppsspråk
+    - øyekontakt, innlevelse
+- påvirkning av publikum
+    - 1. kroppsspråk
+    - 2. tonefall/stemmebruk
+    - 3. innhold
+- ha følgende i bakhodet (minkende mengde)
+    - hva ville du si
+    - hva du faktisk sa
+    - hva mottaker forsto
+    - hva mottaker husket etter 3t
+    - hva mottaker husket etter 3d
+- oppsummering
+    - hvem er publikum?
+    - hvem er du?
+    - hva er budskapet?
+    - hvordan er omgivelsene?
+    - under presentasjon:
+        - kroppspråk
+        - stemmebruk
+        - innhold
+    - engasjement

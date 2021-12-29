@@ -1,0 +1,3 @@
+Denne versjonen skiller seg fra læreboka ved at en sammenlikner stubbobjekter og ikke navn ved
+utmelding av klient, se metoden meldMegUt() i TellemaskinFront og TellemaskinFrontImpl.
+Denne endringen har medført mindre endringer i flere av de øvrige klassene.

@@ -1,0 +1,4 @@
+grad høyere eller lik antall punkter gir uendelig antall likninger ved newtons interpolering
+
+power method:
+er det skalering med sqrt(x^2+y^2) eller største abs?

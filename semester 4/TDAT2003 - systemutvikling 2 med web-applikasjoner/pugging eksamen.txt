@@ -1,0 +1,262 @@
+owasp topp 10 2013
+a1 - injection flaws, typically using sql: occurs when untrusted data is sendt to an interpreter as a part of a query, potentially allowing for unauthorized execution using query manipulation. precautions to be made include using preparedstatements or wrapping the queries in frameworks that take care of it.
+a2 - broken authentication: occurs when client functions are not implemented correctly, potentially allowing for access to passwords, tokens, or keys, allowing for unauthorized access to other user's accounts temp or perm
+a3 - sensitive data exposure: data that is not properly encrypted can be exploited by some basic brute forcing. avoided by hashing and salting both in rest and transport.
+
+status codes
+100 - client side error
+200 - ok
+300 - redirigering, litt spesiell
+400 - bad request (syntaksfeil)
+401 - unauthorized
+403 - forbidden: som 401, men med begrunnelse
+404 - resource not found
+500 - general internal server error
+503 - server nede for vedlikehold
+
+hvorfor bruke rammeverk
+- raskere resultat pga. ferdig kode
+- bedre struktur/consistency
+- innebygd sikkerhetsfunksjonalitet
+- følger standarder
+- bedre ytelse
+
+hvorfor ikke bruke rammeverk
+- intrusivt (kan komme i veien dersom rammeverket ikke er egnet/relevant)
+- blir raskt utdatert (kommer stadig nye rammeverk)
+- kan sette begrensninger
+- kan sete sterke føringer
+- stock funker
+
+react
+- gjenbrukbare komponenter
+- renderer virtuelt dom-tre på nytt ved hver tilstandsendring - gir bedre ytelse
+
+universal rendering
+- bruker server-skripting for å returnere ferdig html for å minske klient-prossessering nettverkstrafikk
+npm
+- node package manager
+- dependency manager
+- package.json
+	- gir pakken (prosjektet) navn
+	- liste over avhengigheter for prosjektet, brukes ved førstegangs-installasjon
+	- installerer modulene til node_modules (putt derfor node_modules i .gitignore)
+ecmascript ES5..6..7..8..TS
+- brukes for statisk typesjekking
+- kompileres ned til js, som er støttet av alle nettlesere
+- standardisering av js
+
+tilstand
+- tre måter å lagre tilstand
+- klienttilstand i klassiske web-apps: cookies(infokapsler)/omskriving av url
+- klienttilstand i moderne web-apps: localStorage og variabler i js
+- server-tilstand: tilstanden lagres på server, varer til nettleser lukkes (session?)
+- persistent tilstand: lagres i db, for å lagre over tid
+
+4 verdier fra agile manifesto brukt i scrum
+- kundekommunikasjon framfor kontraktforhandlinger
+- fungerende kode framfor omfattende dokumentasjon
+- personer og samspill framfor verktøy og prosesser
+- reagere på endringer framfor å følge en plan
+
+3 pilars in scrum
+- transparency: feedback-loop
+- inspection: evaluere koden underveis oppmot sprintmål
+- adaption: tilpasningsdyktighet - tilpasse seg etter endringer og kundebehov
+
+scrum team
+scrum master
+prduct owner
+
+stakeholders (owners, customer)
+project managers
+
+product owner role
+- design product backlog with the scrum team
+- accept/deny changes
+- represent customer (voice of the customer)
+- 
+
+scrum master role
+- make sure team is working and process is being followed
+- make sure team is communicating across areas
+- shield the team
+- 
+
+role of scrum team
+- hold demos for scrum master and product 
+- 7 +-2
+- sets sprint goals
+- organizes itself
+
+4 ceremonies
+- daily scrum meeting
+- sprint review
+- sprint retrospective
+- sprint planning
+
+3 artifacts
+- burndown chart
+- sprint backlog
+- product backlog
+
+product backlog
+- master list of product features
+- scrum master is responsible for it, but scrum team also contributes
+- is dynamic: allowed to change
+- prioritized list
+- marked with time consumption for each list item
+
+scrum - user stories
+- general product feature usable by a user
+
+sprint backlog
+- what needs to be done in the sprint
+
+burndown chart
+- chart with total estimated hours for the project 
+- updated every day and a point is plotted
+- at the end of the project, remaining time should be 0
+- compares actual progress to an ideal line
+
+sprint retrospective
+- looks back at project and evaluates:
+	- what could be done differently
+	- what went well
+
+sprint review
+- demo for product owner
+- everyone involved
+- how is it working
+
+- iterative development process. 
+artifacts
+who's involved
+working process
+- sprints
+- using artifacts and communicating with people involved often
+advantages
+- systematic method
+- ensures proper communication with customer 
+- frames time
+to fulfill product requirements
+disadvantages
+- less documentation
+- more overhead
+
+inspect and adapt
+- evaluate code according to sprint goals
+- change sprint goals if needed
+
+sprint planning
+- plan what needs to be done in next sprint
+- set requirements for it to be done
+part one
+- what product owner wants
+- focusing on highest priority items
+- defines done
+part 2
+- focus on details
+- decide what to implement from product backlog
+
+product backlog refinement
+- backlog is dynamic
+- as product develops, things may come up that are needed
+- requirement analysis
+
+release burndown
+- higher level than sprint burndown
+
+release sprint
+- unwanted extra sprint for integration testing
+
+sprint goal
+- sentence describing the product after the sprint
+- why we are doing the sprint
+
+single sign-on
+- authenticaction process that allows user to access mulitple apps with only one set of login credentials
+
+middleware
+- layer of software between two applications
+
+jwt
+- jason web token: signert json-basert token
+
+antipattern
+- ofte brukt men dårlig løsning på designproblem
+- eksempel er globale tilstander (singleton), som kun bør brukes unntaksvis
+
+mock object
+- simulated objects that mimic behavior of an object
+- can be used for testing of said object
+- eks. mockes dao ved testing av endepunkter
+
+adapter pattern
+- interface adapter to communicate between two classes
+
+proxy pattern
+- interface adapter for client
+
+facade pattern
+- used in oop
+- frontend mask, hiding more complex code
+
+jsx
+- mix of js and xml
+- used in react
+- allows us to easily write html inside js
+
+dao - data access object
+- object that provides abstract interface to db
+- provides specific operations without exposing db
+
+dependency injection
+- tydeliggjør avhengigheter ved å tillate objekter til å bli sendt til klassen uten å tvinge klassen til å være ansvarlig for objektene
+
+singleton
+- limiting instances to one object pr class
+
+høy kohesjon
+- moduler som er lite resirkulerbare har høy kohesjon
+
+lav kohesjon
+- moduler som er resirkulerbare har lav kohesjon
+
+kobling
+- hvor stor grad en modul er kobla/har info om/avhenger av andre moduler
+
+problemer med sterk kobling
+- refaktorisering av en modul kan ødelegge resten
+- vanskeligere å forstå en isolert modul
+- vanskeligere å gjenbruke
+- vanskeligere å teste
+
+fordel med løse koblinger mellom moduler
+- enklere å forstå isolerte moduler
+- enklere å gjenbruke moduler
+- enklere å fakorisere uten problemer
+- enklere å teste
+
+mvc
+- model view controller
+- model: dom
+- view: render
+- controller: reactjs
+
+kontinurelig integrasjon
+- ci
+- brukes av gitlab/github
+- koden bygges automatisk
+- kjører tester og leverer rapporter
+- kan settes til å kjøre ved innsjekk gjenom versjonskontrolleren
+
+continuous deployment
+- cd
+- samme prinsipp som ci
+- brukes isteden hver gang en ny oppdatering slippes til master
+- sørger for at bugs ikke havner i master
+
+
+
+

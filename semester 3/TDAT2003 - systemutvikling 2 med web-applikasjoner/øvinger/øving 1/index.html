@@ -1,0 +1,138 @@
+<!--Lag en webside med egne div'er for
+
+meny (uten funksjonalitet men med menyvalg)
+header (med logo)
+minst to innholdsblokker med enkelt innhold (tekst, bilder)
+footer
+Bruk CSS Grid for å plassere disse elementene på siden. I tillegg skal siden være responsiv, slik at plasseringen av innholdet endres ved endring av bredden på nettleservinduet.
+
+Bruk id'er og klasser på disse elementene og elementer inni hver div slik at de kan styles med CSS.
+
+Til slutt lager dere CSS for nettsiden. Hvis dere er flere som jobber sammen kan dere lage en CSS hver. Bruk ihvertfall:
+
+margin
+border
+padding
+background-color
+background-image
+lek litt med forskjellige fonter
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>web site</title>
+        <style>
+            .header {
+      grid-area: header;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+    }
+
+    /* The grid container */
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+        'header header header header header header'
+        'left middle middle middle middle right'
+        'footer footer footer footer footer footer';
+      /* grid-column-gap: 10px; - if you want gap between the columns */
+    }
+
+    .left,
+    .middle,
+    .right {
+      padding: 10px;
+      height: 100%; /* Should be removed. Only for demonstration */
+      vertical-align:center;
+    }
+
+    /* Style the left column */
+    .left {
+      grid-area: left;
+      display: flex-block;
+      align-items:center;
+      vertical-align:center;
+      justify-content:center;
+    }
+
+    /* Style the middle column */
+    .middle {
+      grid-area: middle;
+      text-align: center;
+      background: blue;
+    }
+
+    /* Style the right column */
+    .right {
+      grid-area: right;
+    }
+
+    /* Style the footer */
+    .footer {
+      grid-area: footer;
+      background-color: #f1f1f1;
+      padding: 10px;
+      text-align: center;
+      color:black;
+    }
+    div{
+        border : solid 2px white;
+    }
+    body {
+        background-color: green;
+    }
+
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media (max-width: 1000px) {
+      .grid-container  {
+        grid-template-areas:
+          'header header header header header header'
+          'left left left left left left'
+          'middle middle middle middle middle middle'
+          'right right right right right right'
+          'footer footer footer footer footer footer';
+      }
+    }
+        </style>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class = 'header'>
+                <h1>øving1</h1>
+            </div>
+            <div id="left">
+                <h3>meny:</h3>
+                <ul id="meny-liste">
+                    <li>
+                        <button type="button">Home</button>
+                    </li>
+                    <li>
+                        <button type="button">About</button>
+                    </li>
+                    <li>
+                        <button type="button">Contact</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="middle">
+                <img src="https://cdn0.vox-cdn.com/thumbor/IL4ThHk4KP1ft0P18EnXxngakdI=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn0.vox-cdn.com/uploads/chorus_image/image/54014619/shrek.0.jpg" height="200" width="400" alt="fint bilde av Shrek">
+
+            </div>
+            <div class="right">
+                <p>
+                    Team Shrek
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id nulla ut massa interdum fermentum et et metus. Mauris lorem nunc, faucibus id tortor in, pulvinar condimentum nisi. Donec vestibulum enim ut velit sagittis feugiat. Proin porttitor non turpis vel consectetur. Nulla ultricies lorem felis, ac venenatis elit sollicitudin congue. Aliquam molestie elementum iaculis. Donec pulvinar iaculis leo, vitae imperdiet ex varius et. Morbi eget tristique ligula, eget rhoncus ex. Mauris libero nunc, cursus nec hendrerit vel, mollis vel tortor.
+                    Donec non tellus a nisi egestas maximus. Praesent ac dolor nec tellus mollis congue sed hendrerit quam. Sed commodo commodo dui ut cursus. Aliquam posuere sapien eget urna porttitor, at lacinia felis malesuada. Proin vitae odio malesuada, fermentum dolor vel, tristique justo. Cras in tellus massa. Sed vehicula consequat bibendum.
+                </p>
+
+
+            </div>
+            <div class='footer'>
+                <a href='https://www.teamshrek.com'>teamshrek.com</a>
+                </div>
+        </div>
+    </body>
+</html>

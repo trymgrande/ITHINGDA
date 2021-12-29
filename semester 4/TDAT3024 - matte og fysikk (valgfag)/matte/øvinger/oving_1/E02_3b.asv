@@ -1,0 +1,12 @@
+%convert 1/3(10) to binary
+
+n = 10;
+r;
+output = "";
+while r ~= 0
+    
+    r = mod(n,2);
+    output = append(output, r)
+
+    n = n/2;
+end

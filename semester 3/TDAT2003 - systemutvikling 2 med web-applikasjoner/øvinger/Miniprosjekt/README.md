@@ -1,0 +1,1 @@
+[gitlab repo](https://gitlab.stud.idi.ntnu.no/trymg/miniprosjekt)
