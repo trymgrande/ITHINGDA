@@ -1,0 +1,9 @@
+- logic
+- search
+    - bfs
+    - dfs
+    - a_star
+    - adversarial
+- csp
+- planning
+- theoretical

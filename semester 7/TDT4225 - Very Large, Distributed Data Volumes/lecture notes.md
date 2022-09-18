@@ -1,0 +1,614 @@
+Additional resources:
+Ongaro/Ousterhout: In Search of an Understandable Consensus Algorithm (RAFT)
+Usenix 2014, (16 pages). 
+[Video](https://www.usenix.org/conference/atc14/technical-sessions/presentation/ongaro)
+
+Dynamo: Amazon's Highly Available Key-value Store, SOSP '07, (16 pages).
+There is a video which covers the central parts of the paper [here](https://www.youtube.com/watch?v=hMt9yFp0JKM)
+
+Spanner: Google's Globally-Distributed Database, OSDI 2012, (14 pages)
+The video is [here](https://www.usenix.org/conference/osdi12/technical-sessions/presentation/corbett)
+
+Dostoevsky: Better Space-Time Trade-Offs for LSM-Tree Based
+Key-Value Stores via Adaptive Removal of Superfluous Merging (16 pages) [video](https://www.youtube.com/watch?v=fmXgXripmh0), [document](https://stratos.seas.harvard.edu/files/stratos/files/dostoevskykv.pdf)
+
+
+# ssds, lsm-trees, rocksdb
+- garbage collection
+    - reallocates usable parts from block into new block, then deletes old block
+- sequential writes
+    - essential for less overhead
+    - over-provisioning: when GC has too much to do, more writes occur than deletes
+- B+-trees
+    - variants:
+        - FB-tree
+            - variable sized blocks simulating FTL's GC algorithm
+        - copy-on-write B-tree
+            - copy a block to new location at updates (linux file system)
+        - write optimized b-tree
+            - no sideway pointers and prevents multiple writes while moving a block
+- LSM-trees
+- rocksDB
+    - builds on google's levelDB
+    
+- SSD
+    - page: 4kB
+    - block: 512 pages
+    - plane: 1024 blocks: 512 MB
+    - die
+    - chips
+    - limited write cycles
+    - changes to block requires block rewrite
+    - need pages to conform to block size to avoid rewrite of two blocks in case of straddling
+
+# chapter 1 - Reliable, Scalable and Maintainable
+- is your case data-intensive?
+    - complexity of data / data increases quickly
+    - ![](images/2021-12-04-09-13-27.png)
+- components
+    - db (truth source)
+    - cache
+    - full-text index (searching by keyword e.g. lapache/lucene)
+    - message queues (message passing between process)
+    - stream processing (async communication)
+    - batch processing (crunching large data)
+    - application code (connects components (cache, db, indexing, stream processing))
+- application dev designs for reliability, scalability, maintainability
+- 
+
+
+# chapter 2
+- ORM
+    - hides difference between java object and sql tables
+- three different ways sql
+    - SQL: normalized table with foreign keys: position, education, contact
+        - join tables to display page
+    - json as attributes (mongodb)
+        - json can be viewed as a tree as it is nested
+            - ![](images/2021-09-03-16-13-30.png)
+        - shared entities is more easily maintained 
+    - document model: complete json/xml docs in columns
+    - mongodb uses documents and therefore lacks support of joins, application level joins instead
+    - not good at shared entities (many-to-one/one-to-many)
+- hierarchial vs codasyl vs sql
+- document model vs sql:
+    - document model:
+        - schema flexibility: different model in same collection (table) might have same data, schema-on-read
+        - slightly different data in same collection (table)
+- query languages for data
+    - imperative: loop all (harder to optimize)
+    - declarative: select all
+- mapreduce querying in mongodb
+    - map (collect/group), reduce (aggregate)
+    - used in distributed clusters of computers
+    - read only
+- graph-like data models
+    - many-to-many supported
+    - property graphs
+    - cypher language (declarative)
+    - 
+
+# chapter 3 - storage and retrieval
+- indexing 
+    - faster access
+    - slower inserts
+    - hash index
+        - in memory hash map to find adresses
+        - compations
+            - file segments are appended to list
+            - compaction and merging into one
+    - details
+        - deletion: replace record with tombstone
+        - crash  recovery: rebuild hash index using logs
+        - append only instead of inplace updates for sequential writes
+        - hashmap has to be small enough to be within memory
+- SSTables
+    - SSTables use SkipList indexing
+    - SkipList is like B+-trees with only one direction
+    - MemTable gets written to disk as SSTable when full
+
+- LSM-trees
+    - faster writes
+    - better for big data because of easier compression because of larger units
+
+- B+-trees
+    - optimized for and has better reads
+    - have to write whole block (therefore writes more)
+    - most widely used
+    - only one key in one place
+    - leaf nodes are linked for sequential reads
+    - for traditional data
+    
+- have to test what is best for the case
+
+- keeping everything in-memory
+    - clustering related data in memory
+    - organizing 
+- data warehouse
+    - multiple databases inside organization
+- column compression
+    - same datatype in column makes compression practical
+    - bitmap encoding for small definisjonsmengde / entries
+    - bottleneck is memory bandwidth
+        - compression utilizes this
+- data warehouse techniques
+    - sorting by date makes typical retreivals easier
+    - avoiding memory jumps to keep cache lines
+    - precompute avg, max, min etc
+
+- bitmap indexes
+    - cardinality: how many unique entries per column (unique values / total rows)
+    - compress column into bitmap if cardinality is low
+
+# chapter 4 - encoding and evolution
+- evolution
+    - needs changes
+- enoding
+    - pointers cant be sent, needs to be encoded, then decoded where both ends agree on "language"
+        - JSON - browsers and js
+        - java.io.serializable - java
+        - xml - complex data formats
+        - csv - simple data formats
+        - support unicode, cant't send binary strings, would need to send binary string as text
+        - unicode - any character
+    - MessagePack
+        - structured binary encoding
+        - Apache Thrift (Facebook)
+            - uses bit operation in addition to bytes
+        - Protocol Buffers
+            - both require a schema: need to send schema to receiver beforehand
+            
+# 5 - replication
+- scalability, fault tolerance, latency, shared nothing, shared disk, NUMA
+- shared nothing architecture
+    - each computer is a node in a network
+    - no need for special hw
+    - constraints
+    - sometimes single-threaded program can outperform cpu network
+    - replication vs partitioning
+    
+    - NUMA
+        - many CPUs with own local memory
+
+- happens-before relationship
+    - two clients are buying milk etc.
+        - need to make sure read version = write version (+1) 
+        - use version vectors
+            - vector clocks used in dynamo
+    - algorithm to decide overwrite
+    - server maintains version number for every key
+    - version number returned at read
+    - read version number must be included at write
+    - when server receives write, it can overwrite all <= versions
+
+- summary
+    - why replication
+        - uptime (failiure/internal disconnection)
+        - latency
+        - scalability (reads)
+    - leadership
+        - single
+        - multi
+        - leaderless
+
+# 6 - partitioning
+- concepts
+    - too large datasets
+    - called shards in mongodb
+    - scalability is main reason
+- query execution
+    - joins create problems
+    - function shipping more common than data shipping
+- partitioning and replication
+    - called declustering 
+- range partitioning
+    - partition on partition key (often pk) into ranges
+    - each node assigned range
+- hash partitioning
+    - spreads load across partitions
+    - mongodb uses md5
+    - skewed workloads if bad function
+
+- partition indexing
+    - naming
+        - search engines: document based indexing / turn based indexing
+        - db: local indexing / global indexing
+    - document based indexing / local indexing
+        - index stored locally on node
+        - simple to implement
+        - best partitioning in search engines
+    - turn based indexing / global indexing
+        - store index in sentralized system (one node)
+    - rebalancing partitions
+        - (refragmentation)
+        - reasons
+            - increased load
+            - failed nodes need replacement
+        - hash partitioning
+            - hashing with mod n=node is not good
+                - almost all nodes are moved on change
+            - keep many partitions per node
+            - insert one partition from each node into new node when scaling
+        - range partitioning
+            - can split node by dividing range
+                - can assign empty division pre-splitting to prepare
+- request routing
+    - how to contact right partition
+    - either
+        - allow clients to contact any node
+            - node will redirect using distribution dict
+        - clurc software between client and node with distribution layer
+        - distribution library directly in client
+- coordination of services
+    - how do clients know about changes?
+    - zookeeper
+        - separate software in routing layer between client and nodes
+            - zookeeper knows distribution
+    - gossip (p2p)
+        - new node tells neighbor iteratively
+    - virtual partition protocol
+        - old
+        
+- summary of chapter 6
+    - hash partitioning, range partitioning
+        - on pk
+        - stored geographically localized
+    - key range partitioning
+        - split ranges
+    - indexing
+        - store index locally on each node / globally on node
+    - rebalancing
+    - request routing
+    - coordination of services
+
+# chapter 7 - transactions
+- why transactions
+    - database/application/network may fail any time
+    - clients may read/write concurrently
+- transactions
+    - group read/write together
+    - commits/aborts as a unit 
+        - can retry
+    - easier to program
+    - nosql not supporting transactions
+    - concepts
+        - read committed
+        - snapshot isolation
+        - serializability
+- history
+    - IBM in 70s
+    - nosql skipped transactions
+    - newsql added transactions to nosql
+- ACID
+    - atomic (completely run or not)
+    - consistency (pk, references, check etc.)
+    - isolation (does not care about other transactions)
+    - durability (nothing lost after commit)
+        - write ahead log (neighbor is fast)
+- single/multi-object ops
+    - multiple writes could be rolled back
+- single object writes
+    - increment is fine
+    - (manual) read, update, write is problematic
+- need for multi-object transactions
+    - fk update modifies multiple pks
+    - same with docs referencing other docs
+    - multiple operations in same task
+- handling aborts
+    - leaderless replication: application has to recover
+    - retries not always good
+        - transaction succeeded, but network failed / server overload
+            - client will retry unneccessarily
+        - only worth retrying after deadlocks/concurrency etc.
+        - ATM may abort after giving money, retry will be bad
+        - data loss if client fails while retrying
+- weak isolation levels
+    - how are different isolation levels implemented?
+    - concurrency bugs hard to find by testing
+    - read committed
+        - lowest level
+        - solves problem by implementing no dirty reads/writes
+        - only allowed committed data (no dirty reads)
+        - only allowed to overwrite committed data (no dirty writes)
+        - dirty reads means
+            - other transactions may see some updates, but not other
+            - transaction may see data that is later rolled back
+    - snapshot isolation
+        - multiversion concurrency control (mvcc) in prostgressql
+            - keeps old record of previous commit and new record with next commit
+            - old record deleted on commit
+        - visibility rules for observing consistent snapshot
+            - transactionid are used to decide visibility of objects 
+                - because db is concistent between transactions
+            1. existing writes not visible to new transaction
+            2. aborted writes ignored
+            3. writes by newer transactions are invisible
+            4. all other writes are visible (previous)
+        - B-tree can be used to store commits
+            - need garbage collection for old (exprired) commits
+        
+# 8 - the trouble with distributed systems
+- fundamentally different
+- problems in practice
+- unpredictable
+- high performance computing (hpc)
+    - high end pc
+    - batch oriented
+- cloud computing
+    - datacenters connected in ip-network
+    - online: need to serve clients with low latency
+    
+# 14 - time and global states
+- physical time
+    - timestamp of event
+    - gives order of events
+    - needs synced clocks
+    - skew - difference between clocks at time point
+    - drift - skew changes over time
+- logial time
+    - order of events
+    - cause and effect
+    - counter incremented for each event
+    - overkill if ordering is only need
+    - perfect physical sync is impossible
+- local time
+    - focus on event order
+    - cause -> effect
+- utc - coordinated universal time
+    - accurate, international standard
+    - atomic clocks
+    - leap seconds included (rotation slowing)
+    - we are UTC+1 (+2 in summer)
+    - transmission
+        - ground stations (1ms accuracy)
+        - gps (1us accuracy)
+- syncing
+    - external
+        - synced against external time source
+        - christian's algorithm
+            - req to server, sets time to res + round trip / 2
+    - internal
+        - internally in the distributed system
+        - not necessarily "correct"
+        - berkley algorithm
+            - master sends req to nodes, sets time to avg res + latency
+    - problem: communication takes time
+- network time protocol (ntp)
+    - protocol syncs clocks via internet
+    - uses utc
+    - focus:
+        - scalability - hierarch of servers
+        - correctness - handle clock drift
+        - reliability - dynamic reconfig
+        - security - authentication etc.
+    - primary servers directly connected have highest accuracy
+    - sync modes
+        - multicast (LAN)
+            - assumes fixed latency
+            - periodic multicast
+        - procedure-call (e.g. christian's algo)
+        - symmetric mode (high accuracy)
+            - servers communicate in pairs, one can be in many pairs
+            - estimates offset and delay
+
+- global states
+    - what and why
+        - distributed gc
+        - distributed deadlock detection
+        - distributed debugging
+    - how
+        - cuts and globally consistent states
+    - distributed gc
+        - garbage: objects without active references
+        - references can be:
+            - local
+            - at other processes/nodes
+            - in messages
+        - need global state
+    - distributed deadlock detection
+        - distributed waits-for cycle
+        - need global state
+    - distributed debugging
+        - variables located at different nodes/processes
+        - need global state
+        - all participant send state changes to external observer
+        - global state predicate Φ
+            - possibly Φ
+                - >= 1 consistent run pass through global consistent state where Φ = true
+            - definitely Φ
+                - all consistent runs pass through global consistent state where Φ = false
+        
+    - cuts
+        - local history: events at one process
+        - global history: local histories combined
+        - problem: find consistent cuts without global time
+            - ![](images/2021-12-11-18-13-14.png)
+        - consistent cut if:
+            - ∀ e ∈ C, f -> e => f ∈ C
+            - inconsistent: system could never have been in this state
+            - consistent -> global consistent state
+        - run
+            - global history where order satisfies all local histories
+        - consistent run / linearization
+            - all global states passed through are consistent
+        - reachable
+            - S' is reachable from S if there is a consistent run between
+    
+# RAFT - consensus algorithm for replicated logs
+- consensus algorithm to ensure common replicated log
+- approaches
+    - symmetric, leader-less
+        - servers have equal roles
+        - clients can use any server
+    - asymmetric, leader-based
+        - slaves accept leader's decitions
+        - client communicate with leader
+    - raft uses a leader
+- overview
+    - leader election
+        - select one of the servers
+        - detect crashes, choose new one
+    - normal operation (basic log replication)
+    - safety and consistency after leader changes
+    - neutralizing old leaders
+    - client interactions
+    - configuration changes
+- server states
+    - each server is either:
+        - leader (only 1)
+        - follower responds to requests
+        - candidate elects new leader with highest term count (votes)
+- terms
+- heartbeats and timeouts
+    - leaders must broadcast (empty) heartbeats to maintain leadership
+        - else: followers start new election after timeout (100-500ms)
+- election basics
+    - increment current term
+    - change to candidate state
+    - vote for self
+    - send requestvote rpc to other servers until:
+        - recieve majority and become leader
+        - recieve rpc from new leader
+        - stale election, restart
+    - safety: only one winner per term
+    - liveness: some candidate must win
+- log structure
+    - entry: index, term, command
+    - stored on stable disk
+    - entry committed if stored on majority servers
+- normal operation
+    - client writes to leader
+    - leader appends log
+    - leader broadcast appendentries rpc
+    - once entry committed:
+        - leader returns to state machine, returns to client
+        - leader broadcast committed entries in appendentries rpc
+        - followers return committed commands to state machines
+    - crashed/slow followers
+        - leader retries rpcs until success
+    - performance optimal if
+        - only one rpc needed
+- neutrilizing old leaders
+    - leader may not be dead
+        - leader temp disconnect
+        - leader re-elected
+        - old leader reconnects and broadcasts
+- client protocol
+    - find leader
+        - if leader unknown, contact any server
+        - server will redirect to server
+    - leader will not respond until command logged, committed, executed by state machine
+    - if req times out:
+        - client sends req to other server
+        - redirects to new leader
+        - retries with new leader
+    - in case of leader crash after execution, before res
+        - must not execute again
+        - solution
+            - client embeds id in each command
+            - server logs id 
+            - ignores if command with id exists
+            - works as long as client doesn't crash
+- configuration changes
+    - config:
+        - id, adress for each server
+        - can determine majority
+    - consensus algo must support config changes
+        - replace failed machine
+        - change degree of replication
+        - need majority for config change
+        - config change is a log entry
+
+# dynamo - amazon's highly available key-value store
+- what is dynamo
+    - highly available by sacrificing consistency
+    - uses object versioning and application-assisted conflict resolution
+- requirements
+    - performance, reliability, efficiency
+    - highly scalable
+    - outage means less customer trust
+- why not normal sql?
+    - only pk used
+    - isolation and strong consistency is not important
+    - replication normally choose consistency over availability
+- system requirements and assumptions
+    - simple read/write queries
+    - data items have pk
+    - only ops on single data items
+    - small objects <1MB
+    - heterogeneous machines
+- amazon's sla
+    - single page req can involve >150 services
+    - measure performance by avg, med, var
+    - focus 99.9th % of customers
+- key concepts
+    - get and put operations
+    - consistent hashing for partitioning -> incremental scalability
+    - vector clocks with reconciliiation during reads for high write availability
+    - sloppy quorum and hinted handoff for handling temp fails - > high availability and durability
+    - anti-entropy using merkle trees for recovering from perma-failiure
+    - gossip-based membership and failiure detection
+- consistent hashing
+    - node insert/del only affect neighbors
+    - assign nodes to area of hash ring
+    - problems
+        - non-uniform data and load
+        - unaware of hw
+    - solution
+        - virtual nodes - powerfull computers take more nodes
+- replication
+    - circular
+    - each key assigned to coordinator node
+    - coordinator responsible for replication of data items in its range
+    - preference list says what nodes are responsible for what keys
+- data versioning
+    - eventual consistency
+    - uses clocks to track
+- execution of get and put
+    - generic load balancer
+        - sends request to random node that forwards it to its nodes in preference list
+        - no need for dynamo code in client
+    - partition aware client library
+        - sends req to nodes in preference list
+        - low latency
+- durability tuning
+    - configurable variables
+        - R: min nodes needed to participate in successful read op
+        - W: min nodes needed to participate in successful write op
+        - R and W need to be top N healthy nodes 
+- handling failiure - hinted handoff
+    - neighbor of node will keep reqs until node is back (hint about receiver in metadata)
+- perma failiure - replica reconstruction
+    - uses merkle trees to detect inconsistensies between replicas
+- membership and failiure detection
+    - gossip protocol
+        - seed membership change history
+    - joining the ring
+- adding/removing nodes
+    - key ranges change
+- software architecture
+    - req coordination
+        - executes req for client
+        - uses state machine
+        - handles req and does read repairs
+        - read-your writes consistency: don't read stale data
+    - membership and failiure detection
+    - local persistence engine
+- experiences
+    - timestamb based: last write wins
+    - high performance read engine
+    - client can tune N, R, W to determine performance, availability, durabiity
+    - common N,R,W=3,2,2
+- client vs server-driven coordination
+    - client based
+        - move state machine to client nodes
+        - poll membership info from random node every 10s
+        - pull based approach scales better, but worst case node can be exposed to stale membership for 10s
+- conclusion
+    - highly available single-key storage system for small objects
+    - easy dev customition for availability, performance, durability
+    - does not scale int tens of thousands - too much gossiping
+    - may require application logic for data reconciliation
+    - is the model for multiple nosql dbs
+    - available as cloud service from amazon
+

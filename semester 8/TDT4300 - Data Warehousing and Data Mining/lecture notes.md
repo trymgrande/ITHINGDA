@@ -1,0 +1,1140 @@
+# 1 - introduction
+- big data needs to be processed to be fast enough
+    - scalability is key
+- olap and data cubes used for data processing by organizing
+- clustering
+    - similarity within groups, dissimilarity between groups
+    - unsupervised: no label
+- knowledge discovery: pre-processing, data mining, post-processing
+
+# 2 - data warehouses (part 1)
+- data analysis
+    - make query
+    - query
+    - visualize results
+    - analyze results
+    - re-iterate
+- visualization
+    - trends, clusters, differences
+- dimensianality reduction
+    - focus important data
+    - using histogram, cross-tabulation, subtotals, roll-up, drill-down
+- overview
+    - extract info from db
+    - put into spreadsheet
+    - aggregate
+    - visualize
+    - formulate new query
+    - repeat
+- need to speed up process (mainly extraction)
+- problem with aggregation functions (roll-up |and drill-down where cells are empty)
+    - need to fill nulls with aggregated roll-up/drill-down
+- better solution is **data cubes**
+    - core of data warehouses
+    - main table (fact table) stores all data observations
+    - dimension tables repeat main table in different dimensions
+    - schema design
+        - star
+            - fact table
+            - dimension tables surrounding fact table for each dimension
+        - snowflake
+            - normalized star schema
+        - fact constellation
+            - links dimension tables that are common to fact tables
+            - collection of stars
+    - operations
+        - dice
+            - returns sub-cube
+        - slice
+            - 2d version of dice
+        - pivot
+            - transpose
+    - starnet query model
+        - specific footprint of different granularity for each dimension
+        ![](images/2022-01-19-12-34-37.png)
+- summary
+    - data cubes aggregate data
+    - use aggregation functions to extract
+    - schemas represent data cube
+
+# 3 - data warehouses (part 2)
+- data cubes
+    - concept hierarchy
+        - total
+            - day -> week -> month -> year
+        - partial
+            - day -> month / week -> year
+    - cube
+        - allows aggregate functions on dimension arguments ?
+    - types of aggregate functions (measures)
+        - distributive
+            - e.g. min function can be partitioned, then results are combined
+        - algebraic
+            - tupled function (f=h(g(x)))
+                - e.g. avg: g records sum and count, while h combines sum and count into result
+- data warehouse
+    - collection of data cubes
+    - for analytical queries
+    - system support system
+    - business intel
+    - subject oriented
+        - customer, supplier, product, sales
+        - for decision making
+    - integrated
+        - multiple sources
+        - data cleaning/integration applied
+            - consistent format
+    - time-variant
+        - analysis over varying time, recent data not needed
+    - nonvolatile
+        - no need for concurrency control etc.
+        - initialization with copying is the only write
+    - business decision
+        - analyze the customer
+    - oltp vs olap
+        - operational vs informational
+        - transaction vs analysis
+        - user clerk vs manager
+        - function day-to-day vs long-term
+        - design ER vs star/snowflake, subjects
+        - data updated vs historic
+        - data primitive vs summarized
+        - 2d vs multi-d
+        - short vs long queries
+        - read/write vs read
+        - low vs high size (redundency)
+    - architecture
+        - ![](images/2022-01-19-15-14-31.png)
+        - bottom dier
+            - relational
+            - back-end tools used to clean and feed data
+        - middle tier
+            - can be relational olap (rolap)
+            - maps multidimensional data to standard relational ops
+        - top tier
+            - user interaction tools
+    - types (complex to simple ordering)
+        - enerprise warehouse
+            - coorporate-wide data
+            - detailed and summarized data
+            - GB-TB+
+            - supercomputers / distributed servers
+            - years to implement
+        - data mart
+            - subset of corporate-wide data
+            - value for specific group of users
+            - independent
+                - local to store
+            - dependent
+                - dependent on enterprise data
+        - virtual warehouse
+            - views over operational dbs
+            - builds on top of existig warehouses
+    - development
+        - incremental/evolutionary
+        - high level model
+        - independent data marts in parallell
+    - data transfer
+        - uses back-end tools
+            1. data extraction (multiple sources)
+            2. cleaning (error correction and consistency)
+            3. ocnvert from windows to linux
+            4. load: sort, summarize etc.
+            5. refresh: import new updates from data sources
+    - metadata repository
+        - defines warehouse objects
+            - timestamping, source of data, missing fields added
+    - cube operator
+        - precomputing means lower response time
+    - cube materialization
+        - no materialization: compute on-the-fly (slow)
+        - full materialization: precompute all cuboids (space heavy)
+        - partial materialization: compute most important cuboids
+            - frequent queries etc
+            - iceberg cube (only some cells)
+            - shell cube (only some dimensions)
+    - indexing (for on-the-fly computation)
+        - use index intersection to combine indices when answering queries
+        - create indices on combinations of dimension keys for combinations often used together
+        - select combinations based on heuristics
+        - all dbms support b-tree index where leaves contain list of row ids
+        - b-tree is overkill for low cardinality
+        - bitmap indexing
+            - position bitmap for each value
+            - fast lookup (no tree traversal and fast bitwise computation)
+            - can compress with rle
+
+
+# 4 - data warehouses (part 3) and data (part 1)
+## data warehouses (part 3)
+- compression for bitmap vectors
+    - rle (high cpu cost)
+    - byte-aligned bitmap compression (bbc) (less compressed, but faster)
+    - word-aligned hybrid (wah) (even less compressed, even faster)
+- join indexing
+    - precompute joins for star/snowflake schema
+- efficient processing of olap queries
+    - need correct granularity (more or equal (day < month))
+- multi-dimensional olap (molap)
+    - map multi-dimensional veiws directly to data cube array structures
+    - can use compression if data set is sparse
+    - faster response times
+- relational olap (rolap)
+    - intermediate server between back-end server and front-end tools
+    - use rdbms with olap middleware to support missing pieces
+    - greater scalability
+- hybrid olap (holap) server
+    - greater scalability and faster response times
+- hdfs
+    - store large files (PB) for streaming with commodity hw
+    - designed to work during node failiure
+    - hbase
+        - distributed column-oriented db on top of hdfs
+        - used for rea-time read/write random access to large datasets
+- "at least 90% of time spent by data scientists is done finding and cleaning the data"
+
+## data (part 1)
+- real world
+    - need an attribute measure to know what to look for in an unorganized data set
+- data consist of attributes/features/variables/fields (columns) and objects/records (rows)
+- attributes
+    - firstly: binary, discrete, or continuous. 
+    - secondly: qualitative (nominal or ordinal) or quantitative (interval or ratio)
+    - nominal/ordinal is qualitative, interval/ratio is quantitative
+    - ![](images/2022-05-21-10-50-32.png)
+    - type depends on:
+        - distinctness ==
+        - order >,<
+        - differences +-
+        - ratios between them x /
+    - categorical:
+        - categorical data is qualitative
+        - nominal attribute: distinctness
+            - re-shuffling id does not matter
+        - ordinal attribute: distinctness and order
+            - order is the same regardless of difference
+    - numeric
+        - numerica data is quantitative
+        - interval attribute: distinctness, order, and meaningful differences
+            - F and C have different 0 value and different degree size
+        - ratio attribute: all 4 properties/operations
+            - lengt can be measured in meter / feet
+    - discrete
+        - finite values e.g. zip codes
+    - continous
+        - real number values e.g. weight
+        - practically, real numbers can be discretized
+    - symmetric: a binary value is symmetric if an outcome can be assigned to either (same weight)
+    - assymetric: most important outcome encoded as 1 (positive/present), least important encoded as 0 (negative/absent)
+- characteristics
+    - dimensionality
+        - number of attributes
+        - data with small dimensionality tends to be qualitatively different
+        - curse of dimensionality
+            - difficulties with high dimensionality
+            - common with dimensions combined with levels
+            - need dimensionality reduction
+    - sparsity
+        - e.g. > 1% are 0
+        - can be compressed for computation time and storage
+    - resolution
+        - patterns only emerge at certain granularity
+- data set types
+    - record
+        - documents
+        - no relationships
+        - e.g. term document matrix
+    - graph
+        - relationships e.g. www
+        - attributes attached to nodes and/or edges
+        - objects as nodes or objects as graphs (chemicals)
+    - ordered
+        - implicit relationship
+        - spatial data
+            - term mentions over time
+        - temporal data
+            - weather observations
+        - each record has time associated
+        - sequence data
+            - order imposed by positional info
+            - opposed to bag of words
+    
+## 5 - data (part 2/3)
+- data analysis perspecives
+    - geometric/algebraic: view points in multi-dimensional space
+    - probobalistic distribution
+- data quality
+    - need HQ in order to do efficient mining
+    - problems
+        - noise
+            - random measurement error
+            - distortion or addition of objects
+            - in the case of spatial or temporal components, techniues from signal processing can be used
+        - outliers
+            - different characteristics from most other objects in data set
+            - values that is unusual for the given attribute
+            - can be legitimate compared to noise
+        - wrong data 
+        - fake data
+        - missing values
+            - eliminate entire object
+            - estimate missing
+            - ignore missing
+        - duplicate data
+            - merging multiple sources 
+            - e.g. same person, multiple e-mail-addresses, or multiple sources with different noise
+            - cleaning to remove data
+- data preprocessing
+    - improve data mining with respect to time, cost, and quality 
+        - dimensiality reduction (sampling, attribute transformation, feature subset selection)
+    - selecting objects and attributes or creating/changing the attributes
+        - aggregation, discretization and binarization, dimensionality reduction, feature cleaning
+    - steps
+        - aggregation
+            - combining attributes into one
+            - reduce number of attributes/objects
+            - e.g. cities aggregated into countries
+        - sampling
+            - extracting small *representative* version of data set to save time
+                - needs to approximate same properties (of interest)
+            - methods
+                - simple random
+                    - equal probability of selection
+                    - variations
+                        - with or without removal from data set (without / with replacement)
+                        - replaced samples can be picked twice
+                        - variations only matter with large data sets
+                    - problems
+                        - rare object classes may not be picked
+                            - need different frequencies for different classes
+                - stratified
+                    - solves problem of simple random
+                    - number of drawn objects is proportional to group size
+                - sample size
+                    - ![](images/2022-02-16-18-26-08.png)
+                - progressive
+                    - increase sample size until accuracy plateau
+        - curse of dimensionality
+            - indicates that the number of samples needed to estimate an arbitrary function with a given level of accuracy grows exponentially with the number of dimensions
+            - geometric: volume becomes too small
+            - probabilistic: too many dimensions to match
+            - need dimensionality reduction
+                - purpose
+                    - avoid curse of dimensionality
+                    - reduce time/money spent on mining algos
+                    - allows visualization of data
+                    - may help eliminate irrelevant features or reduce noise
+                - techniques
+                    - principal component analysis (pca)
+                        - unsupervised (target value not shown)
+                        - linear algebra technique that finds new attributes (principal components) that are
+                            - linear combinations of original
+                            - orthogonal to each other
+                            - capture max data variation
+                    - linear discriminant analysis (lda)
+                        - supervised
+                        - 3d projected to 2d, seeks greatest separation
+                        - ![](images/2022-02-16-21-47-43.png)
+                    - singular value decomposition
+                    - others: supervised and non-linear techniques
+                    - feature selection
+                        - using common sense on domain knowledge
+                            - remove duplicate features e.g. sale price and tax
+                            - remove irrelevant features e.g. user id
+                        - ideal approach
+                            - enumerate all possible subsets of features
+                            - evaluate performance results for each
+                            - finds best feature set solution
+                            - takes 2^n time where n=attributes
+                        - other approaches (searching/branching certain attributes instead of whole set)
+                            - embedded
+                                - algo decides which to use/ignore (decision trees)
+                            - filter
+                                - features are selected independently from algo to pairwise correlation
+                            - wrapper approaches
+                                - same as ideal but without enumerating all possible
+                    - feature creation
+                        - capture important information more efficiently than original attributes
+                        - 3 methods
+                            - feature extractions
+                                - e.g. extract edges from images
+                            - feature construction
+                                - e.g. dividing mass by volume to get density
+                            - mapping data to new space
+                                - e.g. fourier and wavelet analysis
+        - discretization and binarization
+            - some classification algos require data of categorical attributes
+            - simple approach to binerize m categorical values (words)
+                - represent each 'word' using incrementing integer
+                - can use log2(m) binary attributes to represent integers
+                - side effect
+                    - multiple binary attributes may be '1' at once, causing unwanted assymetric values for mining
+                        - a fix is to assign a binary attribute for *each* categorical value
+            - transform continuous to categorical attribute
+                - step 1
+                    - determine intervals by splitting
+                        - unsupervised approaches
+                            - class label (target) associated will not be used
+                            - e.g. equal width
+                                - problem with varying density
+                            - use equal frequency approach instead to balance
+                            - k-means
+                                - use clustering
+                        - supervised approaches
+                            - class info *is* used
+                - step 2
+                    - map continous values to discrete intervals
+        - attribute transformation
+            - use a function to map values inside an attribute to replacement values e.g. x²
+                - requires domain values of function to cover attribute values
+            - normalization or standardization
+                - standardization is used in statistics
+                    - subtracting the mean from the value, dividing by std deviation
+        - similarity and dissimilarity
+            - usually 0 (dissimilar) to 1 (similar)
+            - simple attributes
+                - nominal: 1 similarity if x=y, 0 if x!=y
+                - ordinal: similarity = 1 - dissimilarity
+                - interval or ratio: dissimilarity = x-y 
+            - distances
+                - euclidean distance
+                - minkowski distance
+                    - generalization of euclidean distance using 3rd parameter r
+                        - r=1: manhattan distance (L1)
+                        - r=2: euclidean distance (L2)
+                        - r->inf: Lmax (Linf) norm
+                            - maximum distance
+                - well known properties
+                    - positivity
+                        - d(x,y) >= 0 and d(x,y) = 0 if x=y
+                    - symmetry
+                        - d(x,y) = d(y,x)
+                        - distance from a to b same as b to a
+                    - triangle inequality
+                        - d(x,z) <= d(x,y) + d(y,z)
+                        - distance from a to z >= a to b to z 
+                    - distance that satisfies all these properties is a *metric*
+            - similarity of binary vectors
+                - simple matching coefficient (smc)
+                    - number of matches / number of attributes (summetric)
+                - jaccard coefficient
+                    - (A^B)/(AUB) 
+                    - number of positive AND matches / number of OR matches (positive=1)
+            - recall - document data
+                - each document is a term vector
+                - each term is non-binary
+            - cosine similarity
+                - can be used on document vectors
+                - dot product over abs value multiplication
+        - correlation
+            - linear relationship between attributes
+            - perfect correlation 
+                - range -1 to 1
+                - 1 (-1) means perfect positive (negative) linear relationship
+                    - describes degree and polarity of relationship
+            - pearson's correlation coefficient
+                - corr(x,y) = cov(x,y) / std_dev(x) * std_dev(y)
+                    - cov:
+                        - ![](images/2022-05-21-13-23-33.png)
+                            - ![](images/2022-05-21-13-23-47.png)
+                    - std_dev
+                        - ![](images/2022-05-21-13-34-33.png)
+                        
+
+
+
+# 6/7/8/9/10
+## association rules
+- given set of transactions, find rules that predict missing values
+    - e.g. {diaper} -> {beer}
+- binary representation
+    - presence of item marked as 1 (assymetric binary variable)
+    - item / transaction table (similar to term document matrix)
+    - k-itemset: len(set) = k
+    - support count σ(x)
+        - number of transactions that contain a particular itemset
+            - e.g σ({beer, diapers, milk}) = num(beer ^ diapers ^ milk)
+- assosiation rule
+    - implication expression in the form X -> Y, where X ^Y = Ø
+    - support s(X -> Y) = σ(XUY)/N
+        - e.g. s({milk, diaper} -> {beer}) = σ({milk,diaper,beer})/|T|
+    - confidence (score): c(X -> Y) = σ(XUY)/σ(X) 
+        - out of all transactions that contain X, how many also contain Y?
+- problem
+    - need to find interesting rules given transaction set T
+        - support >= minimum support threshold
+        - confidence >= minimum confidence threshold
+        - minimum support (minsup) and confidence (minconf) represent thresholds on interesting association rules
+        - brute force approach
+            - list all possible association rules
+            - compute support and confidence for each rule
+            - prune rules that do not satisfy minsup and minconf thresholds
+            - computationally intensive
+                - 2^d items -> 3^d-2^d-1 rules
+        - decouple because support remains the same, but confidence changes for given T
+        - 2-step approach
+            - 1. frequent itemset generation
+                - generate all itemsets whose support >= minsup
+                    - computationally intensive
+                        - N transactions in db, M list of transaction candidates (subsets) (2^d), w width of transaction
+                        - O(NMw)
+                        - reduce number of candidates (M)
+                            - pruning
+                            - apriori
+                                if itemset is frequent (minsup true), all subsets are frequent
+                                - for all X,Y: (X subset in Y) => s(X) >= s(Y)
+                                - subset is more specific e.g. iphone subset of iphone 12
+                                - infrequent itemset subsets can be pruned because they are also infrequent
+                                - check support for each item by scanning the db at each level, prune support count < minsup
+
+                        - reduce number of comparisons (NM)
+                            - efficient data structures
+                                - hash tree
+            - 2. rule generation
+                - generate high confidence rules from each frequent itemset, where each rule is a binary partitioning of a frequent itemset
+        - maximal and closed itemsets
+            - closed itemset
+                - itemset X is closed if none of its immediate supersets has the same support as the itemset X
+                - X is not closed if at least one of its immediate supersets has support count as X
+            - itemset X is a frequent itemset it satisfies misup
+            - returning closed frequent itemsets tell more about support count
+            - maximal frequent itemsets
+                - itemset is maximal frequent if it is frequent and none of its immediate supersets are frequent
+            - example (apriori algorithm)
+                - (supersets are lower (ce is superset of e), subsets are higher)
+                - closed frequent itemsets
+                    - (gray in the graphs)
+                    - none of directly connected nodes below have exactly equal support count
+                    - support count is >= minsup
+                - maximal frequent itemset
+                    - maximal if none of the supersets (below) are frequent
+                    - frequent if minsup satisfied
+                - can calculate support count of itemset by finding superset with highest value
+                ![](images/2022-03-25-15-20-31.png)
+        - speed up apriori
+            - way of itemset lattice traversal in order to generate frequent itemsets
+                 - usually level-by-level (bfs) downwards (general to specific) with pruning of infrequent values
+                    - only fast if infrequent itemsets (to be pruned) appear mostly at the top
+                    - many more itemsets are specific than general
+                - starting with specific (bottom) prunes earlier
+                - utilize equivilent classes
+                    - traverse each subtree at a time
+                    ![](images/2022-03-25-15-40-09.png)
+                - dfs instead of bfs
+                    - especially good for pruning of max frequent itemsets
+                - storing support count database horizontal vs vertical
+                    - so far horizontal data layout
+        - drawbacks of apriori
+            - generate large number of candidate sets
+            - repeatedly scan whole database
+
+        - alternatives for itemset generation
+            - FP-growth algorithm
+                - mines complete set of frequent itemsets without the costly candidate generation  
+                - divide and concer: 
+                    - compressed db representation using frequent pattern tree (FP-tree)
+                    - divides compressed db into conditional databases (projected trees) each associated with one "pattern fragment" and mines each db separately. for each pattern fragment, only its associated data sets need to be examined
+                - reduces size of data sets to be searched along with the growth patterns being examined
+                - algorithm
+                    - count support for each item and sort desc
+                    - sort items in each transaction by support desc
+                    - build fp-tree by common prefixes
+                        - starting from Ø, add nodes for each sequential item for each transaction
+                    - itemset generation
+                        - project new fp-tree for each item, with *increasing* order of support (backwards)
+                            - increase each path using count value of goal item
+                             
+
+
+            - ECLAT algorithm (similar to text document indexing)
+                - uses vertical data layout
+                    - items as columns, states TID for each item
+                - uses intersection tid-lists
+                    - fast support counting
+                    - many transactions -> long tid-list
+        - interestingness measures (not curriculum)
+            - frequent itemsets can be used to generate association rules
+            - measures can prune and rank rules with similar support/confidence to give more relevant results
+            - e.g. lift = c(A->B)/s(B)
+
+## Clustering
+- find centroids
+- grouping
+- find similar objects using some similarity (shape/object)
+- applications
+    - water outbreak
+    - group:
+        - documents on topics
+        - genes/proteins
+        - stocks with similar price fluctuation
+    - analysis
+        - db sampling by sampling from each cluster to reduce time
+- clusters can be ambiguos (number)
+- types
+    - partitional: non-overlapping
+    - hierarchical: nested, represented by dendogram/venn diagram
+    - non-exclusive: multiple clusters or border points
+        - fuzzy clustering (probobalistic): weights must sum to 1
+    - partial vs complete
+    - well-separated
+        - each point is closer to every other point in the cluster than any other point not in the cluster
+    - prototype-based
+        - each point in a cluster is closer to its centroid than to any other centroid
+    - contiguity-based (nearest neighbor or transitive)
+        - each point in a cluster is closer to a point in that cluster than to any point not in the cluster
+    - density-based
+        - high density classifies as cluster, low density classifies as noise
+            - solves noise bridge problem of nearest neighbor
+    - conseptual
+        - finds clusters that share a property or represent a concept
+- k-means
+    - algorithm
+        - if proximity function is Manhattan distance, choice of centroid is median 
+        - if the proximity function is squared Euclidean the centroid is the mean
+    - centroids
+    - initial centroids vary, meaning reults can vary
+    - will converge for common proximity measures with welldefined centroids
+        - converging stops when few points change cluster or centroids stop moving
+    - time complexity: O(nKId)
+    - space complexity: O((n+K)d) (coordinate system)
+    - evaluation
+        - lowest sum of squared error (SSE) distance measure
+            - most common measure
+            - square error of all points to their centroid in all clusters 
+            - want global minima
+                - might get stuck in local minima(s)
+                    - can modify termination condition 
+                        - 1% of points don't change cluster
+                        - fixed number of iterations
+            - easy way to reduse SSE is reducing k (clusters)
+                - good clustering with smaller k can have lower SSE than bad clustering with higher k
+    - parameters
+        - selecting k (clusters)
+            - pick elbow by plotting error(k) (low error and low k)
+        - selecting initial centroids
+            - multiple runs for a lucky low sse result
+            - apply hierarchy clustering first
+            - k-means++ (initialization)
+                - set a random sample to be first centroid
+                - for k-1 steps (centroids):
+                    - for each of N points, calculate min distance to currently selected centroids
+                    - randomly select new centroid by choosing point with probability using ~(min distance / sse)
+                - return centroids
+            - bisecting k-means
+                - avoids creating initial centroids
+                - produces partitional or hierarchical clustering
+                - pseudo
+                    - to obtain k clusters, split set of all points into 2 clusters (partitioning)
+                    - select one of these to split on, and so on, until k clusters have been produced
+                - algo
+                    - ![](images/2022-04-07-18-15-12.png)
+    - pre-processing
+        - normalize data
+        - eliminate outliers
+    - post-processing
+        - eliminate small clusters that represent outliers
+        - split loose clusters, i.e. clusters with high sse
+        - merge cluster that are close/small and with low sse
+        - can use these steps during the clustering process
+    - limitations
+        - problems when 
+            - clusters are differing
+                - sizes
+                - densities
+                - non-regular shapes
+            - data contains outliers
+- hierarchical clustering
+    - iterative hierarchical grouping 
+    - produces set of nested clusters organized as hierarchical tree
+    - visualized as dendogram: tree that records sequences of merges/splits
+        - ![](images/2022-04-07-18-45-24.png)
+    - types
+        - agglomerative (most focused in curriculum)
+            - start with points as individual clusters
+            - at each step, merge closest pair of clusters until only one (or k) cluster(s) left 
+        - divisive
+            - start with one all-inclusive cluster
+            - at each step, split a cluster until each cluster contains a point (or there are k clusters)
+        - traditional hierarchical algos use a similarity or distance matrix
+            - merge or split one cluster at a time
+    - strengths
+        - no assumption for number of clusters
+        - clustering visualized (dendogram/nested diagram)
+    - aglomorative algorithm
+        - compute proximity matrix
+        - let each point be a cluster
+        - loop
+            - merge closest clusters
+            - update proximity matrix
+        - until only single cluster remains
+        - key operation is computation of proximity of two clusters
+            - different ways of defining this
+        - complexity
+            - n² space, n³ or n²logn time
+    - define inter-cluster distance
+        - min (simple linkage)
+            - sensitive to noise/outliers
+        - max (complete linkage)
+            - tolerant to noise/outliers
+            - can unwantedly break large clusters
+            - biased towards globular clusters
+        - group average
+            - compromise between min/max
+            - tolerant to noise/outliers
+            - biased towards globular clusters
+        - centroids
+        - other methods e.g. SE used in Ward's method
+    - problems/limitations
+        - once decision is made to combine clusters, cannot be undone
+        - no global objective function is directly minimized
+            - only local steps
+        - different schemes may have problems with:
+            - sensitivity to noise/outliers
+            - difficulty handling clusters of different sizes and non-globular shapes
+            - breaking large clusters
+- density-based
+    - interested in high density separated by low density
+    - DBSCAN
+        - density = number of points within specified radius (eps)
+        - core point
+            - min pts within eps
+        - border point
+            - not core, but core point within eps
+        - noise point is neither core nor border
+        - algorithm
+            - label all points core/border/noise
+            - eliminate noise
+            - set edge between neighbor core points
+            - make each group of connected core points a cluster
+            - assign each border point to a cluster
+        - determine parameters
+            - plot k-th nearest neighbor (often k=4)
+                - ![](images/2022-04-18-17-12-51.png)
+                - set eps to distance intersecting elbow
+                - set k to min points
+            - complexity
+                - O(m) to find number of points in neighborhood
+                - worst case O(m²)
+                - indexes reduces to O(m*log(m))
+                - space O(m) points
+        - pros
+            - resistant to noise
+            - handles clusters of different shapes/sizes
+            - varying densities
+            - high dimensional data
+            - parameter tuning
+        - cons
+            - varying densities
+            - high dimensional data
+- evaluating clustering and clusters
+    - supervised classification can be measured using accuracy, precision, recall
+    - unsupervised clustering is harder to evaluate
+    - why evaluate?
+        - avoid noise patterns
+        - compare algorithms
+        - compare clusters
+    - aspects
+        - determine clustering tendency (is there a non-random structure?)
+            - hopkins statistic
+                - generate p points randomly distributed
+                - sample p points
+                - for both point sets, we find distance to enarest neighbor in original data set
+                - let u_i be nearest neighbor distance from artificaially generated points, while w_i are nearest neighbor distances of sample of points from original data set
+                - hopkins statistic H:
+                    - ![](images/2022-04-18-18-45-33.png)
+                    - H ~ 0.5: generated points and sample points have same nearest neighbor distances
+                    - H ~ 0.0: data is regularly distributed in the data space
+                    - H ~ 1.0: data is highly clustered
+        - compare results to externally known labels
+        - evaluating how well results of clustering fits data without labels
+        - compare two cluster analyses
+        - determine "correct" number of clusters
+    - measures of cluster validity
+        - numerical measures
+            - internal indexes (unsupervised)
+                - cluster cohesion
+                    - measures how closely related objects are in a cluster
+                        - SSE within cluster
+                - separation measures how distinctly separated clusters are
+                    - SSB inter-cluster
+                - SSB + SSE is constant
+                - silhuette coefficient combines both
+                    - for each point:
+                        - calculate a = average distance of point to all other points in its cluster
+                        - calculate b = min of (average distance from point to points in another cluster for all clusters)
+                        - s = (b-a) / (max(a,b))
+                    - value varies -1 to 1, typically 0 to 1
+                    - closer to 1 is better
+                - correlation
+                    - two matrices
+                        - proximity matrix
+                            - ![](images/2022-04-18-18-19-59.png)
+                            - similarity matrix can be obtained by transforming/normalizing distances using formula:
+                                - ![](images/2022-04-18-18-16-49.png)
+                        - ideal similarity matrix
+                            - ![](images/2022-04-18-18-19-40.png)
+                            - row and column for each point
+                            - 1 if pair belong to same cluster, otherwise 0
+                        - compute correlation between matrices (only below diagonal)
+                            - high magnitude indicates points belonging to same cluster are close to each otherbasicdensity based clusters
+                            - similarity matrix shows similarity between each pair of points
+                - cophenetic distance
+                - ![](images/2022-04-18-18-39-36.png)
+                    - proximity at which an agglomerative hierarchical clustering technique puts objects in same cluster first time
+                        - cophenetic distance matrix, entries are cophenetic distances between each point pair
+                        - compares to proximity matrix
+                            - cophonetic correlation coefficient, correlation of how well hierarchical clustering fits the data
+                - framework for cluster validity
+                    - need framework for determining if clustering is good/fair/poor
+                    - statistics can work well
+                        - more atypical usually means good clustering
+                        - if index value is unlikely, results are valid
+                            - e.g. check if statistics for resulting SSE is rare
+        - comparing two sets of cluster analysis, framework is less necessary
+            - external indexes (supervised)
+                - covered in classification section
+                - Entropy
+            - relative index
+                - compare two clusterings/clusters
+                    - SSE/entropy
+
+# classification
+- supervised learning
+    - introduction
+        - given training set
+            - x attributes/independent variable, y class labels
+            - train model
+            - apply model to test set
+            - class label must be nominal, else regression if quantitive
+        - techniques
+            - base classifiers
+                - decision tree (simple)
+                - rule-based (simple, most primitive)
+                - nearest-neighbor
+                - naive bayes and bayesian belief networks
+                - support vector machines
+                - NN/DNN (popular)
+            - ensamble classifiers (combining)
+                - boosting, bagging, random forests
+            - curriculum (detailed)
+                - decision tree based methods
+                - nearest neighbor
+            - rest of the classifiers can be used as black-box (high level)
+    - decision trees
+        - rules that branch based on attributes and end on class label
+        - explains clearly how decisions are made
+        - can exist multiple trees for same data!
+        - algorithms
+            - CART
+            - ID3, C4.5
+            - SLIQ, SPRINT
+            - hunt's algorithms (one of the earliest) (curriculum)
+                - ![](images/2022-04-19-13-26-40.png)
+                - ![](images/2022-04-19-13-39-17.png)
+                - test condition for ordinal attributes
+                    - multi-way split
+                        - use as many partitions as distinct values e.g. marital status -> single/divorced/married
+                    - binary split
+                        - divides into 2 subsets
+                        - can group multiple attributes into single in order to binerize decision
+                            - preserving order is preferred
+                - test condition for continous attributes
+                    - discretization
+                        - grouping or binerization 
+                        - find ranges by equal interval bucketing, equal frequency bucketing (percentiles), clustering
+                            - static - discretize once at beginning
+                            - dynamic - repeat at each node
+                    - binary decision
+                        - consider all possible splits to find best cut
+                        - computationally intensive
+                - determine best split
+                    - want most skewed class distribution (not 50/50 questions) in order to shorten tree length
+                        - meaning greedy approach - purer class distributions
+                            - need measure of node purity
+                                - computing gini index
+                                    - ![](images/2022-04-19-16-28-40.png)
+                                    - where p_i(t) is frequency of class i at node 5, and c is the total number of classes
+                                    - max 1-(1/c) when records are evenly distributed among classes, maning least beneficial situation for classification
+                                    - min 0 when all records belong to 1 class, meaning most beneficial situation for classification
+                                    - used in decision tree algos such as cart, sliq, sprint
+                                    - for 2 class problem:
+                                        - gini = 2p(1-p)
+                                    - computing for collection of nodes
+                                        - for when node is split into k partitions (children)
+                                        - weighted average among all children
+                                        - gain = gini(parent) - gini(children)
+                                    - categorical attributes
+                                        - multi-way split or two-way split?
+                                            - can use gini value to determine (partly)
+                                    - continous attributes
+                                        - naive solution for finding best range split requires pairwise gini calculation meaning n² runtime
+                                        - faster solution
+                                            - sort attribute on values asc
+                                            - compute gini values pairwise left to right (once)
+                                            - find lowest
+                                - entropy
+                                    - ![](images/2022-04-19-16-24-51.png)
+                                    - max of log_2(c) when records are equally distributed among classes, meaning least beneficial situation for classification
+                                    - min of 0 when all records belong to one class, meaning most beneficial situation for classification
+                                    - entropy based computation is similar to gini
+                                        - ![](images/2022-04-19-16-27-43.png)
+                                    - ![](images/2022-04-19-16-31-31.png)
+                                        - choose split that maximizes gain
+                                    - gain ratio
+                                        - ![](images/2022-04-19-16-38-23.png)
+                                        - adjust information gain in order to overcome disadvantage of information gain (e.g. splitting on uid)
+                                - misclassification error
+                                    - ![](images/2022-04-19-16-43-33.png)
+                                    - max 1-(1/c) when records are equally distributed - least interesting
+                                    - min 0, all records belong to one class - most interesting
+                                    - ![](images/2022-04-19-16-44-28.png)
+                                - comparison of imputity measures
+                                    - all work fine
+                                
+                                - finding best split
+                                    - compute impurity measure (p) before splitting
+                                    - compute impurity measure (m) after splitting 
+                                        - for each child node
+                                        - m is weighed impurity of child nodes
+                                    - choose attribute test condition with highest gain (purity) (p-m)
+                - determine when to stop splitting
+                    - problems with tree growing too large
+                    - criteria
+                        - when all records belong to same class
+                        - all records have similar attribute values
+                        - early termination (discussed later)
+        - advantages
+            - inexpensive
+            - fast at classifying unknown records
+            - easy to interpret (small trees)
+            - accuracy is comparable to others for simple data sets
+        - underfitting and overfitting
+            - overfitting
+                - overspecifying model to noise points (memorising training set)
+                - leads to better training error, but worse test error
+                - addressing
+                    - increase training proportion
+                    - avoid complicating model
+                        - pruning the tree (early stopping rule)
+                            - stop algorithm before tree is fully grown
+                            - typical stopping conditions
+                                - all instances belong to same class
+                                - all atrribute values are the same
+                                - if there are no more attributes left to create more partitions, majority voting can be used to convert the given node into a leaf, labeled with the most common class among the tuples.
+                                - If there are no tuples for a given branch, a leaf is created with the majority class from the parent node.
+                            - more restrictive conditions
+                                - number of instances is less than given threshold
+                                - class distribution of instances are independent of the available features (not e.g. 50/50 for 2 features ?)
+                                - stop if impurity measures don't improve on expansion e.g. gini / information gain
+                        - post-pruning
+                            - grow tree entirely
+                            - trim nodes from bottom up
+                            - if generalization error improves after trimming, replace sub-tree by a leaf node
+                            - class label of leaf node is determined from majority class of instances in the sub-tree
+                            - alternatively raise popular paths higher up
+            - underfitting
+                - model is too simple, training and test errors are large
+                - needs more training / larger trees (more leaves)
+        - evaluation
+            - accuracy = (correct predictions / predictions)
+                - tp+tn / tp+tn+fp+fn
+        - estimation methods
+            - partition training/set
+            - holdout
+                - constant split
+            - random subsampling
+                - repeated holdout
+            - cross validation
+                - partition into k subsets
+                - one for testing, rest for training
+                - switch for each run
+                - average results
+                    - (leave-one-out: k=n)
+            - bootstrap
+                - sampling with replacement (re-use training ?)
+    - nearest neighbor classifiers
+        - eager learners
+            - learn a model as soon as data is available
+                - decision trees
+        - lazy learners
+            - delay modeling until classification of test is needed
+                - rote classifier
+                    - memorize training data and classify using exact match
+        - idea
+            - if it walk similar to a duck, it's probably a duck
+        - requires
+            - set of labeled records
+            - proximity metric
+            - k value - number of nearest neighbors to retreive
+            - method for using class labels of ke nearest neighbors to determine class label of unknown record (e.g. majority vote)
+        - determine class label of test sample
+            - majority vote of k-nearest neighbors
+            - weigh vote according to distance
+        - proximity measure choice matters
+            - for documents, cosine is better than correlation or euclidean
+        - data preprocessing
+            - scale attributes to avoid domination
+                - e.g. subtract min value
+        - choose k value
+            - small k -> sensitive to noise
+            - large k ->  neighborhood includes points from other classes
+        - nearest neighbor are local classifiers
+        - voronoi diagram
+            - describes dicision boundaries
+    - rule-based classifier
+        - collection of if: then
+        - successor to decision trees
+        - e.g. married & homeowner & carowner -> no loan
+    - naive bayes
+        - often, class label can't be predicted certanly even though attributes are identical to trainin data
+        - noisy data
+        - based on bayes theorem
+            - ![](images/2022-04-19-18-42-15.png)
+    - support vector machines (SVM/MMC)
+        - linear
+            - tries to separate data using maximum margin hyperplane
+            - ![](images/2022-04-20-09-10-00.png)
+            - support vectors are the closest points to the opposing class
+            - shortest distance measured from center to each support vector (positive and negative)
+                - margin is the sum of these
+            - center line is called hyperplane 
+        - non-linear
+            - use kernel trick/method
+                - computes pairwise similarity of all training instances within input space
+                    - resulting in nxn matrix
+                    - uses non-linear mapping to transform original training data into higher dimension
+                        - avoids manual mapping
+                        - then searches for optimal separating hyperplane within this new dimension
+        - classifies depending on the side of the hyperplane
+    - artificial neural networks (ANN)
+        - inspired by biology
+        - brain has 10^10 neurons and 10^15 connections
+        - weighed directed graph from input neurons represent connection between nodes
+            - neuron has an activation function and can have a bias input
+        - learns by adjusting weights
+        - gives enough hidden layers to approximate any function
+    - other methods - ensemble methods
+        - aggregates methods to improve accuracy
+        - build multiple classifiers together
+        - combine classifier responses using e.g. majority vote or weighted votes
+
+# web usage mining
+- web usage data
+    - data from e-commerce, web services, and web-based information systems
+        - clickstream volumes
+        - transaction data
+        - user profile data
+    - analyzing this data helps organizations determine
+        - value of clients
+        - marketing strategies across products
+        - effectiveness of promotional campaigns
+        - optimize web-based applications
+        - personalize content
+    - web usage mining process
+        - data collection/pre-processing
+            - input e.g. web/application server logs
+            - feature selection, dimensionality reduction, normalization, data subsetting -> user transaction db
+            - data examples
+                - server log files
+                - site files
+                - metadata
+                - operational databases
+                - application templates
+                - domain knowledge
+                - demographics data (user location/income etc.)
+            - data groups
+                - usage data (server access logs)
+                - content data (html/xml pages)
+                - structure data (hyperlink structure as sitemaps)
+                - user data (profiles)
+            - data extraction from server log
+                - resource requested
+                - ip adress
+                - referrer field (used to point to resource)
+                - agent field
+            - transformation/aggregation 
+                - different levels of abstraction for different analysis
+                - pageview - aggregation of resources representing user events e.g. viewing page
+                - session - sequence of pageviews by single user during visit
+                - steps
+                    - data fusion/cleaning
+                    - pageview identification
+                    - user identification
+                    - sessionization
+            - pre-processing of raw server log files
+                - data cleaning is site-specific
+                    - removing
+                        - extreneous references e.g. style graphics etc.
+                        - useless data fields e.g. http protocol
+                        - references due to crawler navigations
+                - pageview identification
+                    - each pageview is collection of resources representing user event
+                        - clicking link
+                        - viewing page
+                        - adding to cart
+                    - static single frame site
+                        each html file has 1-1 correspndence with pageview
+                    - multi-framed sites
+                        - multiple files makes up a pageview
+                    - dynamic sites
+                        - combination of static templates and server generated content
+                - user identification using either:
+                    - authentication mechanisms if logged in e.g. email
+                    - client-side cookies
+                    - combination of ip, user agents, referrers (usually enough)
+                - sessionizing
+                    - segment user activity records into sessions
+                    - without embedded session ids, must rely on heuristics
+                        - time-oriented
+                            - global or local time-out to distinguish
+                            - total session e.g. 30 min time-out
+                            - page stay e.g. max 10 min time-out
+                            - page must be reached from page accessed in same session 
+                                - unless referrer is undefined and time since last request below e.g. 10 sec
+                        - structure-oriented
+                            - implicit linkage structure
+                - path completion
+                    - client- or proxy-side caching can result in missing access references to pages e.g. back button
+                    - path completion requires knowledge of link structure within site
+                    - referrer info can be used to determine paths
+
+- data modeling
+    - data has been pre-processed into set of
+        - n pageviews
+        - m user transactions
+        - user has visited subset of pages
+    - pageviews are semantically meaningful entities to which mining tasks are applied
+    - m x n user-pageview matrix generated
+        - cells can be time spent on page / shopping cart items etc.
+    - can integrate other knowledge sources such as semantic info from web page contents for mining
+        - each pageview can be represented as pageview-feature matrix
+            - goal is to represent user sesions as textual vectors rather than pageview vectors
+            - new matrix is transactional feature matrix
+                - each user associated with vector over feature space
+                - achieved by multiplication of user-pageview matrix with feature-pageview matrix
+                    - ![](images/2022-04-20-11-58-40.png)
+                    - can be enhanced using graphs
+
+- data mining (pattern discovery)
+    - most time spent pre-processing
+    - clustering on user-pageview matrix of e.g. similar customers
+        - ![](images/2022-04-20-11-59-14.png)
+        - can be used to recommend products to similar customers
+    - alternatively clustering of enhanced transaction matrix
+        - ![](images/2022-04-20-12-00-00.png)
+        - can reveal common interests
+    - assosiacion rule mining
+        - ![](images/2022-04-20-11-55-59.png)
+        - can hyperlink frequently purchased products
+
+- post processing (pattern analysis)
+    - filtering patterns, visualization, pattern interpretation
+- 
+
+# guest lecture with bearingpoint
+- ![](images/2022-04-20-12-14-29.png)
+- ![](images/2022-04-20-12-18-15.png)
+- ![](images/2022-04-20-12-19-27.png)
+- ![](images/2022-04-20-13-04-34.png)
+- ![](images/2022-04-20-13-10-01.png)
+- 

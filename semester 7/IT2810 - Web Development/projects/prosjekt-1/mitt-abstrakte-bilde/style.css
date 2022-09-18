@@ -1,0 +1,78 @@
+.header { grid-area: header; }
+.left { grid-area: left; }
+.right { grid-area: right; }
+.footer { grid-area: footer; }
+.documentation { grid-area: documentation}
+#rightCaption { grid-area: rightCaption}
+#leftCaption { grid-area: leftCaption }
+
+.grid-container {
+    text-align: center;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-areas:
+    'header header'
+    'leftCaption rightCaption'
+    'left right'
+    'footer footer'
+    'documentation documentation';
+}
+
+.body {
+    background-color: rgb(90, 175, 204);
+    font-size: calc(8px + 1vmin);
+    font-family: Helvetica;
+    padding: 1em;
+}
+
+.header {
+    background-color: lightcoral;
+    padding: 1em;
+}
+
+.left {
+    background-color: lightcoral;
+    border: 5px solid black;
+}
+
+.right {
+    background-color: lightcoral;
+    border: 5px solid black;
+}
+
+.footer {
+    background-color: lightcoral;
+}
+
+#documentationButton {
+    padding: 1em;
+    background-color: beige;
+    margin: 1em;
+    font-weight: bold;
+    font-size: large;
+}
+
+.documentation {
+    padding: 1em;
+    background-color: lightcoral;
+}
+
+#leftCaption {
+    background-color: lightcoral;
+    padding: 1em;
+}
+
+#rightCaption {
+    background-color: lightcoral;
+    padding: 1em;
+}
+
+h1 {
+    font-family: fantasy;
+}
+
+.ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}

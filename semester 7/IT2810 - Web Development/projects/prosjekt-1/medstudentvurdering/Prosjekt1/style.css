@@ -1,0 +1,159 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    
+    margin: auto;
+    background-color:whitesmoke;
+}
+
+#logo {
+    width: 1.2rem;
+}
+
+#grid {
+    display: grid;
+    margin: 1rem auto 0rem auto;
+    width: 60%;
+    grid-gap: 1.5rem;
+    grid-template-areas:
+    "header"
+    "intro"
+    "content"
+    "about"
+    /*"footer";*/
+}
+
+#header{
+    color: white;
+    font-weight: 300;
+    font-size: 1.2rem;
+    border-radius: 0.25rem;
+    box-shadow: #252623 0.1rem 0.1rem 0.4rem ;
+    padding: 1rem;
+    grid-area: header;
+    background-color: #77867F;
+    background-image: 
+        linear-gradient(
+            #616e68, #4f5854
+        );
+}
+
+#content{
+    border: 1px solid grey;
+    border-radius: 0.25rem;
+    padding: 2rem 1rem 2rem;
+    grid-area: content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    box-shadow: #252623 0.1rem 0.1rem 0.4rem ;
+    background-color:white;
+}
+
+
+#about{
+    border: 1px solid grey;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    grid-area: about;
+    text-align: justify; 
+    display: none;
+    box-shadow: #252623 0.1rem 0.1rem 0.4rem ;
+    background-color:white;
+}
+
+#showAboutButton{
+    position: relative;
+    width: fit-content;
+    padding: 0.5rem;
+    margin: auto;
+    background-image:
+        linear-gradient(
+            #616e68, #4f5854
+        );
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    transition: ease 200ms;
+    box-shadow: #252623 0.1rem 0.1rem 0.3rem;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+}
+
+
+
+#showAboutButton:hover{
+    transition: ease 200ms;
+    background-image:
+        linear-gradient(
+            #4f5854, #444c49
+        );
+}
+
+#showAboutButton:active{
+    transition: ease 200ms;
+    box-shadow: #252623 0.1rem 0.1rem 0.1rem;
+    transform: translateY(1px);
+}
+
+#intro {
+    border: 1px solid grey;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    grid-area: intro;
+    text-align: justify; 
+    box-shadow: #252623 0.1rem 0.1rem 0.4rem ;
+}
+
+.specialText{
+    color: #EBC55C;
+    text-shadow: 1px 1px 1px grey;
+}
+
+#footer{
+    border: 1px solid grey;
+    /*border-radius: 0.25rem 0.25rem 0rem 0rem;*/
+    height: 20%;
+    bottom: 0rem;
+    margin-top: 1rem;
+    position: relative;
+    
+    color: white;
+    background-color: #64726b;
+    background-image: 
+        linear-gradient(
+            #616e68, #4f5854
+        );
+    /*box-shadow: #252623 0.2rem 0.2rem 0.5rem;*/
+}
+
+#footerContent{
+    padding: 2rem;
+}
+
+.art{
+    border: 0.2rem solid #EBC55C ;
+    box-shadow: #252623 0.1rem 0.1rem 0.5rem;
+    margin: 1rem
+}
+
+#canvasBoat{
+    
+}
+
+/*Add animation frames*/
+@keyframes swingAni { 
+    0% { 
+        transform:rotate(0deg) scale(1);
+    } 
+    33% { 
+        transform:rotate(5deg) scale(0.95);
+    } 
+    66% { 
+        transform:rotate(-10deg) scale(0.97);
+    } 
+    100% { 
+        transform:rotate(0deg) scale(1);
+    } 
+}
+@keyframes resetAni{
+    100%{transform:rotate(0deg) scale(1);}
+}

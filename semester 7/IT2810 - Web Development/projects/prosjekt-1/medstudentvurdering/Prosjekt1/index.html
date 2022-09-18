@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,200&display=swap" rel="stylesheet">
+    <title>Mitt abstrakte bilde</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="grid">
+        <div id="header"> <img id="logo" src="media/sailboat.svg" alt=""> The Dodo´s Delight</div>
+        
+        <div id="intro" class="section">
+            <span class="specialText">The Dodo's delight</span> is an art piece inspired by the arctic sailing adventure completed by world renowned arctic rock climbers Sean Villanueva O'Driscoll and Ben Ditto, along with the brothers Nico and Olivier Favresse. Aboard the sailboat named Dodo's Delight they sailed accross the open sea, traveling far and beyond seeking true climbing adventure.
+            <br> <br>
+            Climbing on virgin rock is no easy feat, and so the climbers kept their spirits up through musical improvisation and famous sea shanties. This is represented by the colorful interaction that can be experienced by clicking on the artworks.
+            <br> <br>
+            The imagery is created by an artist by the name of <span class="specialText">Rustam Marlena</span>. Rustam is neither famous nor recognized in the art community. None of his artworks bear resemblance to anything aestetic, but it has been noted by some of the curators of the website that it could have potential in the kids department.
+        </div>
+        
+        <div id="content" class="section">
+            <div class="art">
+                <canvas id="canvasBoat" width="360" height="300"></canvas>
+            </div>
+            <div class="art">
+                <svg id="svgBoat" width="360" height="300">
+                    <!-- Skrog -->
+                    <polygon id="svgHull" points="10 200 100 280 300 280 350 220 350 160 260 160 260 190 240 220 80 220 50 200 10 200"
+                        stroke="black" fill="#612601" stroke-width="1"/>
+                    <!-- Mast -->
+                    <polygon id="svgMast" points="180 220 180 20 185 20 185 220 180 220"
+                        stroke="black" fill="#8f4313" stroke-width="1"/>
+                    <!-- Venstre seil -->
+                    <polygon id="svgLeftSail" points="180 180 30 180 10 200 30 180 180 30 175 35 175 180 180 180"
+                        stroke="black" fill="beige" stroke-width="1"/>
+                    <!-- Høyre seil -->
+                    <polygon id="svgRightSail" points="185 30 250 150 260 160 250 150 185 150 190 150 190 40 185 30"
+                        stroke="black" fill="beige" stroke-width="1"/>
+                </svg>
+            </div>
+        </div>
+
+        <button id="showAboutButton">Show documentation</button>
+
+        <div id="about" class="section">
+            <h3>Om nettsiden</h3>
+            Denne siden har blitt laget med HTML, CSS, Javascript og Jquery. Til styling har jeg brukt både CSS Grid og Flexbox, noe som har gjort det enkelt å lage en god og oversiktlig layout som er dynamisk/skalerbar.
+            <br> <br>
+            Grid har blitt brukt til å lage den overordnede layouten med tre synlige seksjoner + en gjemt seksjon (som du leser på nå). Flexbox har jeg brukt til å stille opp bildene i innholdsseksjonen. Det gjør det enkelt når siden blir smal og bildene ikke får plass i bredden. <code>Flex-wrap</code> gjør at bildene flytter seg til over-under når siden blir smalere og <code>justify-content: space evenly</code> sikrer at bildene har fine plasseringer.
+            <br> <br>
+            Jquery og vanlig Javascript er brukt til å implementere interaksjonen som kan oppleves på nettsiden. Jeg har brukt lyttere som f.eks. <code>click()</code>, <code>mouseover()</code> og <code>mouseleave()</code> til å knytte brukerens handlinger til bevegelse og fargebytte på bildene. Dette er innebygde funksjoner i Jquery som fungerer utmerket til såpass enkel funksjonalitet. Vuggingen av båtene er laget med CSS keyframes som settes i gang av <code>mouseover()</code> og <code>mouseleave()</code>. Fargeendringen skjer ved <code>click()</code> på bildene og endrer deretter fargen til masten og skråget til en tilfeldig farge.
+            <br> <br>
+            <h4>Canvas og SVG</h4>
+            Til å tegne de to kunstverkene har jeg brukt HTML Canvas og SVG. Jeg begynte med å utvikle canvaskunsten ved å tegne en og en linje, før jeg til slutt hadde formen på et skip. Deretter bestemte jeg meg for farger. 
+            <br> <br>
+            Å lage skipet var tidkrevende da jeg måtte plotte hvert punkt (fra starten til slutten av en linje) på canvaset med x- og y-verdier. Heldigvis ble gjennskapingen av kunstverket veldig enkel da jeg kunne plotte de samme verdiene på nytt inn i SVG-polygoner. Så lenge størrelsen på rammene er like vil man kunne plotte de samme posisjonsverdiene og få det samme bildet. Den største forskjellen på disse kunstverkene, rent kode-messig, er at SVGen har blitt skrevet i HTML, mens Canvas ble tegnet med Javascript-funksjoner.
+            <br> <br>
+            To av mine mest brukte læringskilder har vært W3Schools og MDN Web Docs. Disse to kildene har jeg brukt til å oppfriske minnet og for å finne dokumentasjon for de ulike bibliotekene.
+            <br> <br>
+            <h4>Cross-browser testing</h4>
+            Cross-browser testing har blitt gjennomført i to ulike nettlesere; Chrome og Safari. Dette sikrer kompatibilitet på tvers av nettlesere noe som er viktig dersom en ønsker å gjøre siden tilgjengelig for så mange mennesker som mulig. Selv om mange/alle nettlesere følger visse standarder, har de ulike tolkinger av samme innhold, noe som kan villede brukeren til å tro at nettsiden er nede eller at det er noe galt med tilkoblingen når det egentlig er utvikleren som har brukt snevre funksjoner. Test prosedyren har vært som følger:
+            <ol>
+                <li>Skriv kode</li>
+                <li>Sjekk at kode fungerer i chrome og safari</li>
+                <li>Dersom koden ikke fungerer, skriv om kode og repeter</li>
+            </ol>
+            Et viktig element i testingen er å utforske nettsiden på måter som den ikke er planlagt for. For eksempel kan det være lurt å prøve å trykke på tilfeldige steder, trykke mange ganger og raskt på en knapp, resize siden til merkelige størrelsesforhold, etc. Da kan man ofte finne bugs som man ellers ville oversett, men som kunne oppstått for noen brukere.
+        </div>
+
+        
+    </div>
+    <div id="footer">
+        <div id="footerContent">
+            Created on a <img id="logo" src="media/sailboat.svg" alt=""> by a student at NTNU
+            
+        </div>
+    </div>
+    <script src="drawShip.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+[submodule "semester 7/IT2810 - Web Development/projects/prosjekt-2"]
+	path = semester 7/IT2810 - Web Development/projects/prosjekt-2
+	url = https://gitlab.stud.idi.ntnu.no/it2810-h21/team-54/prosjekt-2.git
+[submodule "semester 7/IT2810 - Web Development/projects/project-3"]
+	path = semester 7/IT2810 - Web Development/projects/project-3
+	url = https://gitlab.stud.idi.ntnu.no/it2810-h21/team-54/project-3
+[submodule "semester 8/exam-scripts"]
+	path = semester 8/exam-scripts
+	url = https://github.com/trymgrande/exam-scripts

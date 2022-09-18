@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fullpage}	% for the margins
+\usepackage{mathpazo}	% for the Palatino font (optional) 
+\usepackage{multirow}   % For multirow table cells
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+% .  This is the voluntary template for the assignments in TDT4242.    % 
+%               Remember to fix TODOs before submitting.               %
+%                  Changing the template is allowed.                   %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{\textsc{ \normalsize Norwegian University of Science and Technology\\
+TDT4242 Advanced Software Engineering, spring 2020}\\[0.5cm]
+\LARGE \textbf{Exercise 2}\\
+\large \textbf{Group Number: NN}\\% TODO: edit group number
+\textbf{Peer Group Number: NN}% TODO: edit group number
+} 
+\author{Ola Nordmann \and Kari Nordmann} % TODO: edit your names 
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\begin{itemize}
+    \item Summarize shortly what they have done
+\end{itemize}
+
+
+\section{Implementation of the new features by using DevOps environment}
+\begin{itemize}
+    \item Write about the used DevOps tool.
+    \item Describe the new features which you are going to implement.
+    \item Explain the design and implementation of new features.
+    \item Write about the way of using the DevOps environment to implement the new features.
+    \item Write about meeting with your peer group and their feedback (You should also list the participants of each meeting of your group and your peer group.)
+\end{itemize}
+
+
+\section{Automated test scripts to get full statement coverage}
+\begin{itemize}
+    \item Summarize the statement coverage results.
+    \item Provide information about where to find the test scripts in your code for running these tests.
+\end{itemize}
+
+
+\section{Automated test scripts for black-box testing}
+\begin{itemize}
+    \item Summarize the test results
+    \item Provide information about where to find the test scripts in your code for running these tests.
+\end{itemize}
+
+
+\section{Acceptance tests}
+\begin{itemize}
+    \item Acceptance test cases and results. The test case template is below
+\end{itemize}
+
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{|p{7cm}|p{8cm}|}
+        \hline
+        Test Case Name & Correct PIN entry on first try \\ \hline
+        Test Case ID & TC-1 \\ \hline
+        Description & A customer enters the PIN number correctly on the first attempt \\ \hline
+        \multirow{3}{*}{Preconditions needed to run this test case} & 1. The expected PIN is "2468" \\ \cline{2-2} 
+                                                                    & 2. Screen 2 is displayed \\ \hline
+        \multicolumn{2}{|c|}{\textit{Event Sequence}} \\ \hline
+        \textit{Input events (performed by tester)} & \textit{Output events (observed by system tester)} \\ \hline
+        & 1. Screen 2 shows '- - - -' \\ \hline
+        2. Touch digit 2 & \\ \hline
+        & 3. Screen 2 shows '- - - *' \\ \hline
+        4. Customer touches digit 4 & \\ \hline
+        & 5. Screen 2 shows '- - * *' \\ \hline
+    \end{tabular}
+    \caption{Test Case 1 - Correct PIN entry on first try}
+    \label{tab:test_case_1}
+\end{table}
+
+
+\end{document}

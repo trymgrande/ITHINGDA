@@ -1,0 +1,9 @@
+- media tags
+- svg
+- responsivt design
+    - css grid
+    - skalerbare bilder
+- trenger node.js
+- bruker 'create-react-app'
+- serverside er ikke pensum, bruker kun eksterne API
+- react

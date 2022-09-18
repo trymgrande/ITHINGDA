@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="index.js"></script>
+        <title>Mitt abstrakte bilde</title>
+    </head>
+    <body class="body" onload="draw();">
+        <div class="grid-container">
+            <header class="header">
+                <h1>    
+                    Matato Design
+                </h1>
+                <p>
+                    Den grafiske kunstneren "Matato" er godt kjent for sine banebrytende kunstverk som tar i bruk teknologier som Javascript og jQuery for å virkelig fange seeren. Dette gjør det mulig å skape en slags 'connection' med kunsten, der den beveger seg og interagerer tilbake til seeren. Dette har gitt han flere priser, som blandt annet "Årets nyskaper". I tillegg har han blitt omtalt av mange som "Den moderne Da Vinci".
+                </p>
+            </header>
+            <h2 id="leftCaption">Den hypnotiserende sopp</h2>
+            <section class="left">
+                <canvas id="canvas" style="width: 100%; height: 100%;"></canvas>
+            </section>
+            <h2 id="rightCaption">Den klikkbare sopp</h2>
+            <section class="right">
+                <svg width="100%" height="100%">
+                    <!-- sky -->
+                    <rect x="0" y="0" width="100%" height="84%" style="fill:lightblue; " />
+                    <!-- grass -->
+                    <rect id="grass" x="0" y="84%" width="100%" height="16%" style="fill:green; " />
+                    <!-- cap -->
+                    <circle cx="50%" cy="50%" r="20%" fill="red" />
+                    <rect x="30%" y="50%" width="40%" height="30%" style="fill:lightblue; " />
+                    <!-- stem -->
+                    <rect id="stem" x="44%" y="50%" width="12%" height="44%" style="fill:beige; " />                  
+                    <!-- spots -->
+                    <circle id="spot1" cx="48%" cy="33%" r="2%" fill="white" />
+                    <circle id="spot2" cx="60%" cy="43%" r="2%" fill="white" />
+                    <circle id="spot3" cx="42%" cy="40%" r="2%" fill="white" />
+                    <animate 
+                        xlink:href="#spot1"
+                        attributeName="r"
+                        values="0%;2%;0%"
+                        dur="1s"
+                        repeatCount="indefinite"
+                    />
+                    <animate 
+                        xlink:href="#spot2"
+                        attributeName="r"
+                        values="0%;2%;0%"
+                        dur="2s"
+                        repeatCount="indefinite"
+                    />
+                    <animate 
+                        xlink:href="#spot3"
+                        attributeName="r"
+                        values="0%;2%;0%"
+                        dur="3s"
+                        repeatCount="indefinite"
+                    />                                        
+
+                    Beklager, ne2tleseren din støtter ikke 'inline' SVG.
+                </svg>
+            </section>
+            <footer class="footer">
+                <button id="documentationButton">
+                    Vis/skjul dokumentasjon
+                </button>
+            </footer>
+            <div class="documentation">
+                <h2>
+                    Dokumentasjon
+                </h2>
+                <p>
+                    <h3>CSS grid</h3>
+                    CSS grid ble brukt i hovedkomponenten 'grid-container', hvor alle barn-komponenter blir organisert i en slags matrise. Dette gjør at komponenter legger seg fleksibelt og praktisk, uten at man trenger å hardkode høyde- og bredde-egenskaper. Dette ble valgt grunnet at det er enkelt og raskt å implementere (når man først kan det), samt at det var en god mulighet til å lære det. Merk at Grid Layout modulen ikke støttes i Internet Explorer / Edge 15. Flexbox er ikke brukt i det hele tatt.
+
+                    <h3>HTML canvas og SVG i HTML</h3>
+                    HTML canvas implementeres i Javascript. Dette ble brukt ved å plassere en canvas i en egen 'section' i HTML, for å så hente referanse til den i Javascript. 
+                    Jeg brukte forskjellige figurer med og fylte dem med passende farger for å lage et bilde av en sopp. Denne soppen har en animasjon hvor prikkene øker og minker med tiden. 
+                    Dette ble gjort vha. setInterval()-funksjonen og med en teller for størrelses-parameteret for sirkelen. 
+                    Mellom hver iterasjon, måtte sopp-hodet tegnes på nytt for å forhindre at forrige bilde hang igjen.
+                    <br><br>
+                    SVG i HTML implementeres kun i XML, eller HTML. Jeg fikk til å etterligne canvas-tegningen ganske godt etter litt justering.
+                    I denne tegningen, brukte jeg jQuery, som du kan lese om i jQuery-avsnittet. 
+                    I tillegg, la jeg til en animasjon ved bruk av animate-taggen hvor jeg spesifiserte forskjellige intervaller for hver av flekkene på sopp-hodet. 
+                    Disse kan også skifte farge ved å holde musepeker over, vha. jQuery. 
+                    Forskjellen her er at SVG er høyere oppløst da det bruker vektorer, mens canvas er kun 'tegnede' piksler. 
+                    Figurene i begge deler bruker omtrent samme syntaks der man legger inn parameter som beskriver start-posisjon for x- og y, etterfulgt av lengde for x og y.
+                    Jeg brukte rektangler for gress, himmel, og stilk. Samt sirkler for sopp-hodet og prikkene som var der.
+                    
+                    <h3>jQuery</h3>
+                    jQuery har blitt implementert her ved å bruke 'hosted jQuery' via Google. En stor fordel med dette: 
+                    Mange brukere har allerede lastet ned jQuery. Dette betyr at det allerede vil være lastet fra cachen når brukeren besøker nettsiden, som fører til raskere innlasting. 
+                    I tillegg, vil de fleste som hoster jQuery tjene forespørte filer fra nærmeste tjener, som også gir raskere innlasting.
+                    <br><br>
+                    Dette har blitt brukt til å både vise/skjule dokumentasjon, og for å bytte farge på elementer i tegningen. 
+                    For dokumentasjonen, brukes det først hide()-metoden på dokumentasjon-elementet, og deretter toggle()-metoden for å bytte mellom synlig/usynlig hver gang brukere trykker på knappen.
+                    For bytting av farge, endres 'fill'-egenskapen i CSS-elementet det er snakk om (this). Dette blir gjort for både stilk ved 'click', samt spots og gress ved 'hover'. 
+                    Fargen endres da til resultatet av en funksjon som finner en tilfeldig generert CSS-farge. 
+                    Merk at jQuery har problemer med cross-browser-støtte, men det vil kjøre likt i alle de mest populære nettleserne. 
+
+                    <h3>Cross-browser testing</h3>
+                    For denne testen, ble nettsiden kjørt på både Google Chrome, Microsoft Edge, og Mozilla Firefox. Alle nettleserene fikk til å vise alle elementer, til og med animasjon og jQuery. Alle nettleserne presenterte nettsiden responsivt ved endring av vindusstørrelse.
+
+                    <h3>Informasjonskilder</h3>
+                    <ul class="ul">
+                        <li>
+                            <a href="https://www.w3schools.com/css/css_grid_container.asp">CSS grid tutorial</a>
+                        </li>
+                        <li>
+                            <a href="https://www.w3schools.com/jquERy/default.asp">jQuery tutorial</a>
+                        </li>        
+                        <li>
+                            <a href="https://www.w3schools.com/jsref/met_win_setinterval.asp">Bruk av setInterval() for animasjon</a>
+                        </li>    
+                        <li>
+                            <a href="https://css-tricks.com/snippets/javascript/random-hex-color/">Tilfeldig generert CSS-farge</a>
+                        </li>                   
+                        <li>
+                            <a href="https://www.w3schools.com/graphics/default.asp">Canvas tutorial</a>
+                        </li>   
+                        <li>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animate">SVG animation</a>
+                        </li>  
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

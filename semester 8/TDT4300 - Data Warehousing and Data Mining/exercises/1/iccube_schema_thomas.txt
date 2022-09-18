@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schemaFactory revisionNumber="108">
+    <schemaDefinition name="flights" group="flights" loadOnStartup="false">
+        <activateIncrementalLoad>false</activateIncrementalLoad>
+        <useUnknownMembersInFacts>true</useUnknownMembersInFacts>
+        <autoCleanUpTableColumns>false</autoCleanUpTableColumns>
+        <useFactPartitioning>false</useFactPartitioning>
+        <memberPropertyConsistencyCheck>ACTIVE</memberPropertyConsistencyCheck>
+        <fileCSV directory="C:/Users/thomas/OneDrive - NTNU/Documents/Master/TDT4300 datamining/archive" checkColumnSize="false" name="locations" includeSynonyms="false" disableReadOnlyMode="false">
+            <csvDataTable csvseparator="," csvquotechar="&quot;" csvescape="\" csvstrictQuotes="false" csvignoreLeadingWhiteSpace="true" fileEncoding="UTF-8" tableName="airports.csv" rowLimit="-1" id="a1c80417-77d9-4fa7-970b-941ac9681a55">
+                <column name="IATA_CODE" tableType="STRING" type="STRING" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="AIRPORT" tableType="STRING" type="STRING" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="CITY" tableType="STRING" type="STRING" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="STATE" tableType="STRING" type="STRING" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="COUNTRY" tableType="STRING" type="STRING" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="LATITUDE" tableType="STRING" type="FLOAT" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="LONGITUDE" tableType="STRING" type="FLOAT" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <addRowNumber>false</addRowNumber>
+                <trimStrings>true</trimStrings>
+                <columnSeparator>,</columnSeparator>
+              <commentMarker>#</commentMarker>
+            </csvDataTable>
+        </fileCSV>
+        <fileCSV directory="C:/Users/thomas/OneDrive - NTNU/Documents/Master/TDT4300 datamining/archive" checkColumnSize="false" name="flights" includeSynonyms="false" disableReadOnlyMode="false">
+            <csvDataTable csvseparator="," csvquotechar="&quot;" csvescape="\" csvstrictQuotes="false" csvignoreLeadingWhiteSpace="true" fileEncoding="UTF-8" tableName="flights.csv" rowLimit="-1" id="405441ee-b3a9-4275-841d-041438182713">
+                <column name="YEAR" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="MONTH" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="DAY" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="DAY_OF_WEEK" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="AIRLINE" tableType="STRING" type="STRING" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="FLIGHT_NUMBER" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="TAIL_NUMBER" tableType="STRING" type="STRING" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="ORIGIN_AIRPORT" tableType="STRING" type="STRING" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="DESTINATION_AIRPORT" tableType="STRING" type="STRING" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="SCHEDULED_DEPARTURE" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="DEPARTURE_TIME" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="DEPARTURE_DELAY" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="TAXI_OUT" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="WHEELS_OFF" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="SCHEDULED_TIME" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="ELAPSED_TIME" tableType="STRING" type="FLOAT" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="AIR_TIME" tableType="STRING" type="FLOAT" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="DISTANCE" tableType="STRING" type="FLOAT" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="WHEELS_ON" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="TAXI_IN" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="SCHEDULED_ARRIVAL" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="ARRIVAL_TIME" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="ARRIVAL_DELAY" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="DIVERTED" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="CANCELLED" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="CANCELLATION_REASON" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="AIR_SYSTEM_DELAY" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="SECURITY_DELAY" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="AIRLINE_DELAY" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="LATE_AIRCRAFT_DELAY" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="WEATHER_DELAY" tableType="STRING" type="INTEGER" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="DATE" tableType="STRING" type="DATE" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <addRowNumber>false</addRowNumber>
+                <stringDateConverter>yyyy/MM/dd</stringDateConverter>
+                <trimStrings>true</trimStrings>
+                <columnSeparator>,</columnSeparator>
+                <commentMarker>#</commentMarker>
+            </csvDataTable>
+        </fileCSV>
+        <fileCSV directory="C:/Users/thomas/OneDrive - NTNU/Documents/Master/TDT4300 datamining/archive" checkColumnSize="false" name="time" includeSynonyms="false" disableReadOnlyMode="false"/>
+        <fileCSV directory="C:/Users/thomas/OneDrive - NTNU/Documents/Master/TDT4300 datamining/archive" checkColumnSize="false" name="airlines" includeSynonyms="false" disableReadOnlyMode="false">
+            <csvDataTable csvseparator="," csvquotechar="&quot;" csvescape="\" csvstrictQuotes="false" csvignoreLeadingWhiteSpace="true" fileEncoding="UTF-8" tableName="airlines.csv" rowLimit="-1" id="17051189-207f-4369-9dff-81a01ede1270">
+                <column name="IATA_CODE" tableType="STRING" type="STRING" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <column name="AIRLINE" tableType="STRING" type="STRING" selected="true" primaryKey="false" nullObjectAsString="0"/>
+                <addRowNumber>false</addRowNumber>
+                <trimStrings>true</trimStrings>
+                <columnSeparator>,</columnSeparator>
+                <commentMarker>#</commentMarker>
+            </csvDataTable>
+        </fileCSV>
+        <multiLevelDimension dataTableId="a1c80417-77d9-4fa7-970b-941ac9681a55" isTimeDimension="false" isDefaultTimeDimension="false" isIndexingByRange="false" id="10a8d701-2269-4b48-9028-5d085a277b24" name="location">
+            <multiLevelHierarchy hasAllLevel="true" allLevelName="All-Level" allMemberName="All" name="location" isDefault="true" uuid="5daa5d94-c639-4166-bb1c-f41c8ae2e5a1">
+                <factAggregationType>MEMBER_AND_ANCESTORS</factAggregationType>
+                <level uuid="26b00074-2933-42be-86c0-8c90766b355d" name="airport" nameUnique="false" nameUniqueInParent="false" keyUnique="false" ignoreNameCollision="true">
+                    <nameCol name="AIRPORT"/>
+                    <orderType>NONE</orderType>
+                </level>
+                <level uuid="6ff43500-51bf-4a1b-96c3-44a6e84d698a" name="city" nameUnique="false" nameUniqueInParent="false" keyUnique="false" ignoreNameCollision="true">
+                    <nameCol name="CITY"/>
+                    <orderType>NONE</orderType>
+                </level>
+                <level uuid="eb6f1afa-d158-40a0-9832-737fa90ef94e" name="state" nameUnique="false" nameUniqueInParent="false" keyUnique="false" ignoreNameCollision="true">
+                    <nameCol name="STATE"/>
+                    <orderType>NONE</orderType>
+                </level>
+                <level uuid="58e1a55f-b960-4056-ba02-e20dfa5048c2" name="country" nameUnique="false" nameUniqueInParent="false" keyUnique="false" ignoreNameCollision="true">
+                    <column name="IATA_CODE"/>
+                    <nameCol name="COUNTRY"/>
+                    <orderType>NONE</orderType>
+                </level>
+                <level uuid="3e7802d9-0945-46b1-9286-709e2cdbc290" name="iata_code" nameUnique="false" nameUniqueInParent="false" keyUnique="false" ignoreNameCollision="false">
+                    <nameCol name="IATA_CODE"/>
+                    <orderType>NONE</orderType>
+                </level>
+            </multiLevelHierarchy>
+        </multiLevelDimension>
+        <multiLevelDimension dataTableId="405441ee-b3a9-4275-841d-041438182713" isTimeDimension="true" isDefaultTimeDimension="true" isIndexingByRange="false" id="65a2a7e7-7b2b-49b6-a2d8-1b062a064087" name="time">
+            <multiLevelHierarchy hasAllLevel="true" allLevelName="All-Level" allMemberName="All" name="time" isDefault="true" uuid="d596df27-c976-4a7a-aac8-803ece58fef4">
+                <factAggregationType>MEMBER_AND_ANCESTORS</factAggregationType>
+                <level uuid="115e6f33-6244-4065-80fa-7c28ca3e6b7c" name="yearL" levelType="YEAR" nameUnique="false" nameUniqueInParent="false" keyUnique="false" ignoreNameCollision="true">
+                    <nameCol name="YEAR"/>
+                    <orderType>NONE</orderType>
+                    <orderColumn name="YEAR"/>
+                </level>
+                <level uuid="fe35969b-dd5a-4ebe-baf8-45a9b78df6c3" name="monthL" levelType="MONTH" nameUnique="false" nameUniqueInParent="false" keyUnique="false" ignoreNameCollision="true">
+                    <nameCol name="MONTH"/>
+                    <orderType>BY_COLUMN</orderType>
+                    <orderColumn name="MONTH"/>
+                </level>
+                <level uuid="d8c8c924-1d3a-4004-bb88-1c3b54fbb060" name="dayL" levelType="DAY" nameUnique="false" nameUniqueInParent="false" keyUnique="false" ignoreNameCollision="true">
+                    <nameCol name="DATE"/>
+                    <orderType>NONE</orderType>
+                </level>
+            </multiLevelHierarchy>
+        </multiLevelDimension>
+        <cube id="f8edc034-b02d-4001-bd2e-e591e5da186d" name="cube">
+            <defaultFacts uuid="ed48334d-581f-475e-b558-75fe43f639fd" measureGroupName="air_time" partitioningType="NONE" newGeneration="true" dataTableId="405441ee-b3a9-4275-841d-041438182713" aggregateDataSourceFacts="false" unresolvedRowsBehavior="IGNORE">
+                <rowFactAggregationType>ADD_ROW</rowFactAggregationType>
+                <measure uuid="3399b7ef-ea97-4dc2-89f5-f64816844e46" name="air time" aggregationType="MAX">
+                    <dataColumn name="AIR_TIME"/>
+                    <emptyIsZero>false</emptyIsZero>
+                </measure>
+                <measure uuid="f13a4514-a177-4c25-b178-79d24246b4af" name="elapsed time" aggregationType="AVG_CHILDREN">
+                    <dataColumn name="ELAPSED_TIME"/>
+                    <emptyIsZero>true</emptyIsZero>
+                </measure>
+                <measure uuid="0f4676e6-ec08-42fd-94d6-c80fbe7e4344" name="number of flights" aggregationType="COUNT">
+                    <dataColumn name="YEAR"/>
+                </measure>
+                <measure uuid="8f5df35d-4004-4111-8e51-8fa9cf407e6f" name="total distance " aggregationType="SUM">
+                    <dataColumn name="DISTANCE"/>
+                    <emptyIsZero>true</emptyIsZero>
+                </measure>
+                <links dimensionId="10a8d701-2269-4b48-9028-5d085a277b24">
+                    <viewLinks type="INTERMEDIATE_LEVEL">
+                        <fromLevelNames>iata_code</fromLevelNames>
+                        <toColumns name="ORIGIN_AIRPORT"/>
+                    </viewLinks>
+                </links>
+                <links dimensionId="65a2a7e7-7b2b-49b6-a2d8-1b062a064087">
+                    <viewLinks type="LAST_LEVEL">
+                        <toColumns name="DATE"/>
+                    </viewLinks>
+                </links>
+            </defaultFacts>
+        </cube>
+        <localization enabled="false"/>
+        <colors enabled="false"/>
+        <script>
+            <content>-- 
+-- Drop all calc. members, sets and functions declared at schema/cube levels. 
+-- 
+
+DROP *
+
+</content>
+        </script>
+    </schemaDefinition>
+</schemaFactory>
+

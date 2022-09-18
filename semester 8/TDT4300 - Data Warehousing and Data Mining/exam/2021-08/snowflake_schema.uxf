@@ -1,0 +1,42 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>330</x><y>230</y><w>120</w><h>190</h></coordinates><panel_attributes>fact table
+books
+--
+location_key
+-.
+time_key
+-.
+shop_key
+-.
+book_key
+-.
+publisher_key
+--
+units_sold</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>90</y><w>210</w><h>120</h></coordinates><panel_attributes>dimension table
+location
+--
+location_key
+year
+month
+week
+day
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>10</x><y>250</y><w>210</w><h>70</h></coordinates><panel_attributes>dimension table
+time
+--
+time_key
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>130</y><w>130</w><h>170</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;150</additional_attributes></element><element><id>Relation</id><coordinates><x>210</x><y>290</y><w>140</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>490</y><w>210</w><h>70</h></coordinates><panel_attributes>dimension table
+publisher
+--
+publisher_key
+name</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>460</y><w>150</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;130;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>620</x><y>150</y><w>210</w><h>90</h></coordinates><panel_attributes>dimension table
+shop
+--
+shop_key
+city</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>610</x><y>340</y><w>210</w><h>150</h></coordinates><panel_attributes>dimension table
+book
+--
+book_key
+genre
+author
+isbn
+type
+publisher</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>190</y><w>200</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>180;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>330</y><w>190</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>170;60;10;10</additional_attributes></element></diagram>

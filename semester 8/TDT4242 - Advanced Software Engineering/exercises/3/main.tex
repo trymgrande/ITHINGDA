@@ -1,0 +1,37 @@
+\documentclass{article}
+
+% Importing settings from our file "setup.sty"
+\usepackage{setup}
+
+% Beginning of document
+\begin{document}
+
+% Inserting title page
+\import{./}{title}
+
+% Defining front matter settings (Norsk: innstillinger for forord m.m.)
+\frontmatter
+
+% Inserting table of contents
+\tableofcontents
+
+% Inserting list of figures & list of tables
+\listoffigures
+\listoftables
+
+% Defining main matter settings (Norsk: innstillinger for hoveddelen av teksten)
+\mainmatter
+
+% Introduction explaining this LaTeX-template
+\import{./Sections/}{Introduction}
+
+\import{./Sections/}{Code_Review_Guideline}
+
+\import{./Sections/}{Code_Refactoring_Results}
+
+% Printing bibliography
+\newpage
+\printbibliography[heading = bibintoc, title = Bibliography]    % 'bibintoc' inserts our bibliography into the table of contents
+
+% End of document
+\end{document}

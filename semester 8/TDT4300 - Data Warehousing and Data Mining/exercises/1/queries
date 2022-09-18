@@ -1,0 +1,50 @@
+4
+select max(count(flight.arrival_flights)), airport.name
+from flight join airport join time
+group by flight.month
+
+month, airport_with_highest
+jan	jfk
+feb	osl
+mar	mad
+
+
+Select [Measures].[number of flights] On Columns,
+   [time].[monthL] on Rows
+   From [cube]
+   
+   
+
+select
+   [Measures].[Arrival Flight Count] on 0
+   [Time].[Time].[Month]*order(
+      existing([Airport].[Airport].[AirportIATA]),
+      [Measures].[Arrival Flight Count], bdesc
+   ) on 1
+   from
+   [Cube]
+
+select
+   [Measures].[number of flights] on 0,
+   [time].[monthL].members*order(existing([airport].members),[Measures].[number of flights], 
+      bdesc
+   ) on 1
+   from
+   [cube]
+
+
+thomas
+select 
+   [Measures].[number of flights] on columns,
+	TopCount({[time].[monthL].members*[location].[airport].members}, 12, [Measures].[number of flights]) on rows
+from [cube]
+
+SELECT (
+   [Time].[Time].[Month], ORDER([Arrival Airport].[Name Hierarchy].[Name].members, [Measures].[Arrival Flights], DESC)
+   ) ON 0 
+FROM [Cube]
+
+select 
+   [Measures].[number of flights] on columns,
+	[time].[monthL].members*[location].[airport].members on rows
+from [cube]
